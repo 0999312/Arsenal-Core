@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:golden_sword"
+  },
+  "addition": {
+    "item": "chinese_sword:golden_chinese_sword_sheath"
+  },
+  "result": {
+    "item": "chinese_sword:golden_chinese_sword"
+  }
+}

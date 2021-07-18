@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:stone_sword"
+  },
+  "addition": {
+    "item": "chinese_sword:stone_ancient_sword_sheath"
+  },
+  "result": {
+    "item": "chinese_sword:stone_ancient_sword"
+  }
+}

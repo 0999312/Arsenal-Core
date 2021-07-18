@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+  	"chinese_sword:wooden_chinese_sword",
+	"chinese_sword:stone_chinese_sword",
+	"chinese_sword:iron_chinese_sword",
+	"chinese_sword:golden_chinese_sword",
+	"chinese_sword:diamond_chinese_sword",
+	"chinese_sword:netherite_chinese_sword"
+  ]
+}

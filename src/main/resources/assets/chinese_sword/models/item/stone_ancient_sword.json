@@ -1,0 +1,12 @@
+{
+  "parent": "chinese_sword:item/ancient_sword",
+  "textures": {
+		"0": "chinese_sword:item/stone_sword"
+  },
+  "overrides" : [ {
+    "predicate" : {
+      "blocking" : 1
+    },
+    "model" : "chinese_sword:item/stone_ancient_sword_blocking"
+  } ]
+}
