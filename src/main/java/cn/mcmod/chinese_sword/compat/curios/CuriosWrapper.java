@@ -19,12 +19,7 @@ public class CuriosWrapper implements ICurio {
 	public CuriosWrapper(ItemStack sheath) {
 		this.sheath = sheath;
 	}
-
-	@Override
-	public boolean canSync(String identifier, int index, LivingEntity livingEntity) {
-		return true;
-	}
-
+	
 	@Override
 	public boolean canRightClickEquip() {
 		return false;

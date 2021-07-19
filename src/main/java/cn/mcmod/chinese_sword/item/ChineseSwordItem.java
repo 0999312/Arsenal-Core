@@ -1,7 +1,5 @@
 package cn.mcmod.chinese_sword.item;
 
-import java.util.function.Supplier;
-
 import cn.mcmod.chinese_sword.Main;
 import cn.mcmod.chinese_sword.compat.curios.CuriosWrapper;
 import cn.mcmod.chinese_sword.compat.curios.SimpleCapProvider;
@@ -12,22 +10,21 @@ import net.minecraft.item.UseAction;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.LazyValue;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import top.theillusivec4.curios.api.CuriosCapability;
 
 public class ChineseSwordItem extends SwordItem {
 	private final WeaponTier tier;
-	private final LazyValue<ItemStack> sheath;
+	private final ItemStack sheath;
 	
-	protected ChineseSwordItem(WeaponTier tier, int attackDamageIn, float attackSpeedIn,Supplier<ItemStack> sheathItem, Properties builderIn) {
+	protected ChineseSwordItem(WeaponTier tier, int attackDamageIn, float attackSpeedIn,ItemStack sheathItem, Properties builderIn) {
 		super(tier, attackDamageIn, attackSpeedIn, builderIn);
 		this.tier = tier;
-		this.sheath = new LazyValue<>(sheathItem);
+		this.sheath = sheathItem;
 	}
 	
-	public ChineseSwordItem(WeaponTier tier,Supplier<ItemStack> sheathItem, Properties builderIn) {
+	public ChineseSwordItem(WeaponTier tier,ItemStack sheathItem, Properties builderIn) {
 		this(tier, 4, -1.6F, sheathItem, builderIn);
 	}
 
@@ -60,7 +57,8 @@ public class ChineseSwordItem extends SwordItem {
 	@Override
 	public ICapabilityProvider initCapabilities(ItemStack stack, CompoundNBT nbt) {
 		if(Main.curiosLoaded)
-			return new SimpleCapProvider<>(CuriosCapability.ITEM, new CuriosWrapper(sheath.get()));
+			return new SimpleCapProvider<>(CuriosCapability.ITEM, new CuriosWrapper(sheath));
 		return super.initCapabilities(stack, nbt);
 	}
+	
 }

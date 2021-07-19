@@ -1,6 +1,7 @@
 package cn.mcmod.chinese_sword.compat.curios;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
@@ -8,8 +9,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
-
-import javax.annotation.Nullable;
+import top.theillusivec4.curios.api.CuriosCapability;
 
 public class SimpleCapProvider<C> implements ICapabilityProvider {
 	private final C capInstance;
@@ -26,6 +26,11 @@ public class SimpleCapProvider<C> implements ICapabilityProvider {
 	@Nonnull
 	@Override
 	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
+		//避开CuriosCapability.ITEM导致的NULL
+	    if (cap == CuriosCapability.ITEM)
+	        return LazyOptional.of(() -> this.capInstance).cast(); 
+	    //重载资源包的时候可能会导致 capability 为NULL，原因不明。
+	    //思考除了CuriosCapability.ITEM，其他的Cap会不会NULL
 		return capability.orEmpty(cap, capOptional);
 	}
 

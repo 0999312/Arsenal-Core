@@ -37,17 +37,7 @@ public class Main {
 	private void enqueueIMC(final InterModEnqueueEvent event) {
 		if (curiosLoaded) {
 			InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
-					() -> SlotTypePreset.CHARM.getMessageBuilder().build());
-			InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
-					() -> SlotTypePreset.RING.getMessageBuilder().size(2).build());
-			InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
 					() -> SlotTypePreset.BELT.getMessageBuilder().build());
-			InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
-					() -> SlotTypePreset.BODY.getMessageBuilder().build());
-			InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
-					() -> SlotTypePreset.HEAD.getMessageBuilder().build());
-			InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
-					() -> SlotTypePreset.NECKLACE.getMessageBuilder().build());
 		}
 	}
 

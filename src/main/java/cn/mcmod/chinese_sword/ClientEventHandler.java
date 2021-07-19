@@ -17,8 +17,11 @@ public class ClientEventHandler {
     @SubscribeEvent
 	public static void setupClient(final FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
+//			进行批量注册Item Property Override
 			ItemRegistry.ITEMS.getEntries().forEach((item) -> {
+//				判断物品类型
 				if (item.get() instanceof AncientSwordItem || item.get() instanceof ChineseSwordItem)
+//					注册原版的blocking Property
 					ItemModelsProperties.register(item.get(), new ResourceLocation("blocking"),
 							(itemStack, clientWorld, livingEntity) -> {
 								return livingEntity != null && livingEntity.isUsingItem()
