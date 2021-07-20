@@ -5,23 +5,19 @@ import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
 
 public class NetPacketHandler {
-	public static SimpleChannel INSTANCE;
-	public static final String PROTOCOL_VERSION = "1.0";
-	private static int ID = 0;
+    public static SimpleChannel INSTANCE;
+    public static final String PROTOCOL_VERSION = "1.0";
+    private static int ID = 0;
 
-	public static int nextID() {
-		return ID++;
-	}
+    public static int nextID() {
+        return ID++;
+    }
 
-	public static void registerMessage() {
-		INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation("chinese_sword", "network"), () -> PROTOCOL_VERSION, 
-				PROTOCOL_VERSION::equals,
-				PROTOCOL_VERSION::equals
-		);
-		INSTANCE.messageBuilder(DrawSwordPacket.class, nextID())
-			.encoder(DrawSwordPacket::toBytes)
-			.decoder(DrawSwordPacket::new)
-			.consumer(DrawSwordPacket::handler)
-			.add();
-	}
+    public static void registerMessage() {
+        INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation("chinese_sword", "network"),
+                () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
+
+        INSTANCE.messageBuilder(DrawSwordPacket.class, nextID()).encoder(DrawSwordPacket::toBytes)
+                .decoder(DrawSwordPacket::new).consumer(DrawSwordPacket::handler).add();
+    }
 }

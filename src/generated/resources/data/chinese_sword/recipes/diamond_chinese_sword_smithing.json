@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:diamond_sword"
+  },
+  "addition": {
+    "item": "chinese_sword:diamond_chinese_sword_sheath"
+  },
+  "result": {
+    "item": "chinese_sword:diamond_chinese_sword"
+  }
+}
