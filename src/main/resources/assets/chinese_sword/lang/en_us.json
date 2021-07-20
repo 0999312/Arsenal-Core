@@ -23,5 +23,7 @@
    "item.chinese_sword.diamond_chinese_sword" : "Diamond Chinese Sword",
    "item.chinese_sword.diamond_ancient_sword" : "Diamond Ancient Sword",
    "item.chinese_sword.netherite_chinese_sword" : "Netherite Chinese Sword",
-   "item.chinese_sword.netherite_ancient_sword" : "Netherite Ancient Sword"
+   "item.chinese_sword.netherite_ancient_sword" : "Netherite Ancient Sword",
+   "key.draw_sword" : "Draw Sword",
+   "key.category.chinese_sword" : "Chinese Style Sword"
 }

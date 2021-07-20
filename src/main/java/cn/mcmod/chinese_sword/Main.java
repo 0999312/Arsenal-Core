@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import top.theillusivec4.curios.api.SlotTypeMessage;
@@ -13,6 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import cn.mcmod.chinese_sword.item.ItemRegistry;
+import cn.mcmod.chinese_sword.net.NetPacketHandler;
 
 @Mod("chinese_sword")
 public class Main {
@@ -28,11 +30,14 @@ public class Main {
 	public Main() {
 		curiosLoaded = ModList.get().isLoaded("curios");
 
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
 
 		ItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 	}
-
+    private void setup(final FMLCommonSetupEvent event) {
+    	event.enqueueWork(NetPacketHandler::registerMessage);
+    }
 
 	private void enqueueIMC(final InterModEnqueueEvent event) {
 		if (curiosLoaded) {

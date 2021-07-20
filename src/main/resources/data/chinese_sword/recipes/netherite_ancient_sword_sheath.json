@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " IL",
+    "  I",
     " L ",
     "PS "
   ],
   "key": {
     "I": {
-      "tag": "forge:ingots/gold"
+      "tag": "forge:ingots/netherite"
     },
     "L": {
       "tag": "minecraft:logs"
@@ -20,6 +20,6 @@
     }
   },
   "result": {
-    "item": "chinese_sword:golden_chinese_sword_sheath"
+    "item": "chinese_sword:netherite_ancient_sword_sheath"
   }
 }

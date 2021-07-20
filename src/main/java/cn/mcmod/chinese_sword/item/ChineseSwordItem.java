@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import top.theillusivec4.curios.api.CuriosCapability;
 
-public class ChineseSwordItem extends SwordItem {
+public class ChineseSwordItem extends SwordItem implements IDrawable{
 	private final WeaponTier tier;
 	private final ItemStack sheath;
 	
@@ -22,6 +22,11 @@ public class ChineseSwordItem extends SwordItem {
 		super(tier, attackDamageIn, attackSpeedIn, builderIn);
 		this.tier = tier;
 		this.sheath = sheathItem;
+	}
+	
+	@Override
+	public ItemStack getSheath(ItemStack stack) {
+		return this.sheath;
 	}
 	
 	public ChineseSwordItem(WeaponTier tier,ItemStack sheathItem, Properties builderIn) {
@@ -60,5 +65,7 @@ public class ChineseSwordItem extends SwordItem {
 			return new SimpleCapProvider<>(CuriosCapability.ITEM, new CuriosWrapper(sheath));
 		return super.initCapabilities(stack, nbt);
 	}
+
+
 	
 }

@@ -14,13 +14,18 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import top.theillusivec4.curios.api.CuriosCapability;
 
-public class AncientSwordItem extends SwordItem {
+public class AncientSwordItem extends SwordItem implements IDrawable{
 	private final WeaponTier tier;
 	private final ItemStack sheath;
 	protected AncientSwordItem(WeaponTier tier, int attackDamageIn, float attackSpeedIn,ItemStack sheathItem, Properties builderIn) {
 		super(tier, attackDamageIn, attackSpeedIn, builderIn);
 		this.tier = tier;
 		this.sheath = sheathItem;
+	}
+	
+	@Override
+	public ItemStack getSheath(ItemStack stack) {
+		return this.sheath;
 	}
 	
 	public AncientSwordItem(WeaponTier tier,ItemStack sheathItem, Properties builderIn) {
@@ -47,6 +52,7 @@ public class AncientSwordItem extends SwordItem {
 		ItemStack itemstack = playerIn.getItemInHand(handIn);
 		playerIn.startUsingItem(handIn);
 		return ActionResult.consume(itemstack);
+		
 	}
 
 	public WeaponTier getWeaponTier() {

@@ -23,5 +23,7 @@
    "item.chinese_sword.diamond_chinese_sword" : "钻石中式剑",
    "item.chinese_sword.diamond_ancient_sword" : "钻石古剑",
    "item.chinese_sword.netherite_chinese_sword" : "下界合金中式剑",
-   "item.chinese_sword.netherite_ancient_sword" : "下界合金古剑"
+   "item.chinese_sword.netherite_ancient_sword" : "下界合金古剑",
+   "key.draw_sword" : "拔剑",
+   "key.category.chinese_sword" : "中式剑"
 }
