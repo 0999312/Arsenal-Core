@@ -7,7 +7,7 @@
 	"elements": [
 		{
 			"from": [6.25, -2, 7.25],
-			"to": [9.75, -1, 8.75],
+			"to": [9.75, -1.5, 8.75],
 			"faces": {
 				"north": {"uv": [6, 0, 13, 1], "rotation": 180, "texture": "#0"},
 				"east": {"uv": [13, 0, 14, 2], "rotation": 90, "texture": "#0"},
@@ -143,8 +143,8 @@
 		},
 		{
 			"name": "SHELL",
-			"from": [6.85, -1, 7.6],
-			"to": [9.15, 31, 8.4],
+			"from": [6.85, -1.5, 7.6],
+			"to": [9.15, 30.5, 8.4],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8.1, 0, 8.05]},
 			"faces": {
 				"north": {"uv": [0, 0, 6, 16], "texture": "#1"},
@@ -160,27 +160,27 @@
 		"thirdperson_righthand": {
 			"rotation": [0, -90, 0],
 			"translation": [0, 6.75, 0.75],
-			"scale": [0.5, 0.65, 0.5]
+			"scale": [0.6, 0.65, 0.6]
 		},
 		"thirdperson_lefthand": {
 			"rotation": [0, -90, 0],
 			"translation": [0, 6.75, 0.75],
-			"scale": [0.5, 0.65, 0.5]
+			"scale": [0.6, 0.65, 0.6]
 		},
 		"firstperson_righthand": {
 			"rotation": [-15, -90, 0],
-			"translation": [0, 8.25, 1.5],
-			"scale": [0.42, 0.55, 0.42]
+			"translation": [0, 9, 1.5],
+			"scale": [0.5, 0.6, 0.5]
 		},
 		"firstperson_lefthand": {
 			"rotation": [-15, -90, 0],
-			"translation": [0, 8.25, 1.5],
-			"scale": [0.42, 0.55, 0.42]
+			"translation": [0, 9, 1.5],
+			"scale": [0.5, 0.6, 0.5]
 		},
 		"ground": {
 			"rotation": [90, 0, 0],
 			"translation": [0, -3, 0],
-			"scale": [0.5, 0.65, 0.5]
+			"scale": [0.6, 0.65, 0.6]
 		},
 		"gui": {
 			"rotation": [60, -42.5, -21],
@@ -189,11 +189,11 @@
 		"head": {
 			"rotation": [145, 90, 0],
 			"translation": [-6.5, -25, 0.25],
-			"scale": [0.5, 0.65, 0.5]
+			"scale": [0.6, 0.65, 0.6]
 		},
 		"fixed": {
-			"translation": [0, -1, -0.5],
-			"scale": [0.4, 0.5, 0.4]
+			"translation": [0, -1, -1],
+			"scale": [0.5, 0.55, 0.5]
 		}
 	},
 	"groups": [

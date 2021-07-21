@@ -48,9 +48,44 @@ public class SmithRecipes extends ForgeRecipeProvider {
                 ItemRegistry.NETHERITE_CHINESE_SWORD.get());
         addSmithing(consumer, Items.NETHERITE_SWORD, ItemRegistry.NETHERITE_ANCIENT_SWORD_SHEATH.get(),
                 ItemRegistry.NETHERITE_ANCIENT_SWORD.get());
+
+        addSmithing(consumer, Items.IRON_SWORD, ItemRegistry.STEEL_CHINESE_SWORD_SHEATH.get(),
+                ItemRegistry.STEEL_CHINESE_SWORD.get());
+        addSmithing(consumer, Items.IRON_SWORD, ItemRegistry.STEEL_ANCIENT_SWORD_SHEATH.get(),
+                ItemRegistry.STEEL_ANCIENT_SWORD.get());
+
+        addSmithing(consumer, Items.IRON_SWORD, ItemRegistry.PLATINUM_CHINESE_SWORD_SHEATH.get(),
+                ItemRegistry.PLATINUM_CHINESE_SWORD.get());
+        addSmithing(consumer, Items.IRON_SWORD, ItemRegistry.PLATINUM_ANCIENT_SWORD_SHEATH.get(),
+                ItemRegistry.PLATINUM_ANCIENT_SWORD.get());
+
+        addSmithing(consumer, Items.IRON_SWORD, ItemRegistry.ELECTRUM_CHINESE_SWORD_SHEATH.get(),
+                ItemRegistry.ELECTRUM_CHINESE_SWORD.get());
+        addSmithing(consumer, Items.IRON_SWORD, ItemRegistry.ELECTRUM_ANCIENT_SWORD_SHEATH.get(),
+                ItemRegistry.ELECTRUM_ANCIENT_SWORD.get());
+
+        addSmithing(consumer, Items.IRON_SWORD, ItemRegistry.INVAR_CHINESE_SWORD_SHEATH.get(),
+                ItemRegistry.INVAR_CHINESE_SWORD.get());
+        addSmithing(consumer, Items.IRON_SWORD, ItemRegistry.INVAR_ANCIENT_SWORD_SHEATH.get(),
+                ItemRegistry.INVAR_ANCIENT_SWORD.get());
+
+        addSmithing(consumer, Items.IRON_SWORD, ItemRegistry.SILVER_CHINESE_SWORD_SHEATH.get(),
+                ItemRegistry.SILVER_CHINESE_SWORD.get());
+        addSmithing(consumer, Items.IRON_SWORD, ItemRegistry.SILVER_ANCIENT_SWORD_SHEATH.get(),
+                ItemRegistry.SILVER_ANCIENT_SWORD.get());
+
+        addSmithing(consumer, Items.STONE_SWORD, ItemRegistry.NICKEL_CHINESE_SWORD_SHEATH.get(),
+                ItemRegistry.NICKEL_CHINESE_SWORD.get());
+        addSmithing(consumer, Items.STONE_SWORD, ItemRegistry.NICKEL_ANCIENT_SWORD_SHEATH.get(),
+                ItemRegistry.NICKEL_ANCIENT_SWORD.get());
+
+        addSmithing(consumer, Items.STONE_SWORD, ItemRegistry.LEAD_CHINESE_SWORD_SHEATH.get(),
+                ItemRegistry.LEAD_CHINESE_SWORD.get());
+        addSmithing(consumer, Items.STONE_SWORD, ItemRegistry.LEAD_ANCIENT_SWORD_SHEATH.get(),
+                ItemRegistry.LEAD_ANCIENT_SWORD.get());
     }
 
-    private static void addSmithing(Consumer<IFinishedRecipe> consumer, Item base, Item sheath, Item output) {
+    private void addSmithing(Consumer<IFinishedRecipe> consumer, Item base, Item sheath, Item output) {
         SmithingRecipeBuilder.smithing(Ingredient.of(base), Ingredient.of(sheath), output)
                 .unlocks("ingredient", has(sheath)).save(consumer, output.getRegistryName().toString() + "_smithing");
     }

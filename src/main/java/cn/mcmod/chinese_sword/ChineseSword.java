@@ -20,7 +20,7 @@ import cn.mcmod.chinese_sword.net.NetPacketHandler;
 public class ChineseSword {
     public static boolean curiosLoaded = false;
     private static final Logger LOGGER = LogManager.getLogger();
-    public static final ItemGroup WEAPON_GROUP = new ItemGroup("chinese_sword") {
+    public static final ItemGroup WEAPON_GROUP = new ItemGroup(Constants.MODID) {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ItemRegistry.IRON_CHINESE_SWORD.get());
@@ -43,7 +43,7 @@ public class ChineseSword {
     private void enqueueIMC(final InterModEnqueueEvent event) {
         if (curiosLoaded) {
             InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
-                    () -> SlotTypePreset.BELT.getMessageBuilder().size(14).build());
+                    () -> SlotTypePreset.BELT.getMessageBuilder().build());
         }
     }
 

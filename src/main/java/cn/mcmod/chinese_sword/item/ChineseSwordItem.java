@@ -4,6 +4,7 @@ import cn.mcmod.chinese_sword.ChineseSword;
 import cn.mcmod.chinese_sword.compat.curios.CuriosWrapper;
 import cn.mcmod.chinese_sword.compat.curios.SimpleCapProvider;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.UseAction;
@@ -25,13 +26,22 @@ public class ChineseSwordItem extends SwordItem implements IDrawable {
         this.sheath = sheathItem;
     }
 
-    @Override
-    public ItemStack getSheath(ItemStack stack) {
-        return this.sheath;
+    public ChineseSwordItem(WeaponTier tier, int attackDamageIn, float attackSpeedIn, ItemStack sheathItem) {
+        this(tier, attackDamageIn, attackSpeedIn, sheathItem,
+                new Item.Properties().stacksTo(1).tab(ChineseSword.WEAPON_GROUP));
     }
 
     public ChineseSwordItem(WeaponTier tier, ItemStack sheathItem, Properties builderIn) {
         this(tier, 4, -1.6F, sheathItem, builderIn);
+    }
+
+    public ChineseSwordItem(WeaponTier tier, ItemStack sheathItem) {
+        this(tier, 4, -1.6F, sheathItem, new Item.Properties().stacksTo(1).tab(ChineseSword.WEAPON_GROUP));
+    }
+
+    @Override
+    public ItemStack getSheath(ItemStack stack) {
+        return this.sheath;
     }
 
     @Override

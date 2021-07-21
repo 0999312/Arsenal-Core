@@ -1,0 +1,14 @@
+{
+  "parent": "chinese_sword:item/ancient_sword",
+  "textures": {
+    "0": "chinese_sword:item/steel_sword"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "minecraft:blocking": 1.0
+      },
+      "model": "chinese_sword:item/steel_ancient_sword_blocking"
+    }
+  ]
+}

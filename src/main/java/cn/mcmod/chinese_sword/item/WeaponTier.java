@@ -1,5 +1,6 @@
 package cn.mcmod.chinese_sword.item;
 
+import cn.mcmod.chinese_sword.Constants;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
@@ -16,7 +17,7 @@ public class WeaponTier implements IItemTier {
     private final LazyValue<Ingredient> repairMaterial;
     private final ResourceLocation tagName;
     private String name;
-    private String modId = "chinese_sword";
+    private String modId = Constants.MODID;
 
     public WeaponTier(String unlocName, String modId, int harvestLevel, int maxUses, float efficiency, float baseDamage,
             int enchantability, ResourceLocation tagName) {
@@ -33,7 +34,7 @@ public class WeaponTier implements IItemTier {
 
     public WeaponTier(String unlocName, int harvestLevel, int maxUses, float efficiency, float baseDamage,
             int enchantability, ResourceLocation tagName) {
-        this(unlocName, "chinese_sword", harvestLevel, maxUses, efficiency, baseDamage, enchantability, tagName);
+        this(unlocName, Constants.MODID, harvestLevel, maxUses, efficiency, baseDamage, enchantability, tagName);
     }
 
     public WeaponTier(String unlocName, String modId, IItemTier itemTier, ResourceLocation tagName) {
@@ -42,7 +43,7 @@ public class WeaponTier implements IItemTier {
     }
 
     public WeaponTier(String unlocName, IItemTier itemTier, ResourceLocation tagName) {
-        this(unlocName, "chinese_sword", itemTier, tagName);
+        this(unlocName, Constants.MODID, itemTier, tagName);
     }
 
     @Override

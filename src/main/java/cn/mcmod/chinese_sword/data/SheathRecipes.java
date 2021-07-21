@@ -10,6 +10,7 @@ import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ForgeRecipeProvider;
 
@@ -79,5 +80,89 @@ public class SheathRecipes extends ForgeRecipeProvider {
                 .pattern("PS ").define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
                 .define('S', Ingredient.of(Tags.Items.STRING))
                 .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.STICK)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.STEEL_ANCIENT_SWORD_SHEATH.get()).pattern("  I").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/steel"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.STEEL_CHINESE_SWORD_SHEATH.get()).pattern(" IL").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/steel"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.ELECTRUM_ANCIENT_SWORD_SHEATH.get()).pattern("  I").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/electrum"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.ELECTRUM_CHINESE_SWORD_SHEATH.get()).pattern(" IL").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/electrum"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.INVAR_ANCIENT_SWORD_SHEATH.get()).pattern("  I").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/invar"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.INVAR_CHINESE_SWORD_SHEATH.get()).pattern(" IL").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/invar"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.SILVER_ANCIENT_SWORD_SHEATH.get()).pattern("  I").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/silver"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.SILVER_CHINESE_SWORD_SHEATH.get()).pattern(" IL").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/silver"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.PLATINUM_ANCIENT_SWORD_SHEATH.get()).pattern("  I").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/platinum"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.PLATINUM_CHINESE_SWORD_SHEATH.get()).pattern(" IL").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/platinum"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.LEAD_ANCIENT_SWORD_SHEATH.get()).pattern("  I").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/lead"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.LEAD_CHINESE_SWORD_SHEATH.get()).pattern(" IL").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/lead"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.NICKEL_ANCIENT_SWORD_SHEATH.get()).pattern("  I").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/nickel"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.NICKEL_CHINESE_SWORD_SHEATH.get()).pattern(" IL").pattern(" L ")
+                .pattern("PS ")
+                .define('I', Ingredient.of(ItemTags.createOptional(new ResourceLocation("forge", "ingots/nickel"))))
+                .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))
+                .define('S', Ingredient.of(Tags.Items.STRING))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT)).save(consumer);
     }
 }

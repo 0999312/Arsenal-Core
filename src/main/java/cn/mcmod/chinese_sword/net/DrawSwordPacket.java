@@ -5,6 +5,7 @@ import java.util.function.Supplier;
 import cn.mcmod.chinese_sword.ChineseSword;
 import cn.mcmod.chinese_sword.item.IDrawable;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.server.SPlaySoundPacket;
 import net.minecraft.util.Hand;
@@ -53,13 +54,16 @@ public class DrawSwordPacket {
         for (int i = 0; i < stackHandler.getSlots(); i++) {
             // 如果物品可以拔剑，则执行拔剑部分的代码并跳出循环。
             if (stackHandler.getStackInSlot(i).getItem() instanceof IDrawable) {
-                // 拔剑固定用主手拔，判断主手是否有物品并能否安置在物品栏内。
-                // 不能，则丢出物品。
-                if (!player.getMainHandItem().isEmpty())
-                    if (!player.addItem(player.getMainHandItem().copy()))
-                        player.drop(player.getMainHandItem(), false);
-                // 设置物品。
+                // 先缓存主手的物品。
+                ItemStack mainHandItem = player.getMainHandItem().copy();
+                // 设置主手为腰带上的武器。
                 player.setItemInHand(Hand.MAIN_HAND, stackHandler.getStackInSlot(i).copy());
+                // 拔剑固定用主手拔，判断主手是否有物品并能否安置在物品栏内。
+                // 后安置物品，避开吞物品的情况。
+                // 不能，则丢出物品。
+                if (!mainHandItem.isEmpty())
+                    if (!player.addItem(mainHandItem))
+                        player.drop(player.getMainHandItem(), false);
                 // 播放拔剑音效，取玩家攻击音。
                 // 不造成实际攻击。
                 player.connection.send(new SPlaySoundPacket(SoundEvents.PLAYER_ATTACK_SWEEP.getLocation(),
