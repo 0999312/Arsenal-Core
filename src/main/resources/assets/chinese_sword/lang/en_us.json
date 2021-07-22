@@ -51,6 +51,10 @@
    "item.chinese_sword.nickel_ancient_sword" : "Nickel Ancient Sword",
    "item.chinese_sword.lead_chinese_sword" : "Lead Chinese Sword",
    "item.chinese_sword.lead_ancient_sword" : "Lead Ancient Sword",
+   "item.chinese_sword.silver_chinese_sword_sheath" : "Silver Chinese Sword Sheath",
+   "item.chinese_sword.silver_ancient_sword_sheath" : "Silver Ancient Sword Sheath",
+   "item.chinese_sword.silver_chinese_sword" : "Silver Chinese Sword",
+   "item.chinese_sword.silver_ancient_sword" : "Silver Ancient Sword Sheath",
    "key.draw_sword" : "Draw Sword",
    "key.category.chinese_sword" : "Chinese Style Sword"
 }
