@@ -54,6 +54,9 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
             mods {
                 examplemod {
                     source sourceSets.main
@@ -75,6 +78,9 @@ minecraft {
             // You can set various levels here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
+
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 chinese_sword {
@@ -98,6 +104,9 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             args '--mod', 'chinese_sword', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
@@ -113,6 +122,11 @@ minecraft {
 repositories {
     maven {
         url = "https://maven.theillusivec4.top/"
+    }
+
+    maven {
+        name = 'Botania maven'
+        url = "https://maven.blamejared.com"
     }
 }
 
@@ -144,6 +158,11 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.4-4.0.3.5")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.4-4.0.3.5:api")
+
+    compileOnly fg.deobf('vazkii.patchouli:Patchouli:1.16.4-51:api')
+    runtimeOnly fg.deobf('vazkii.patchouli:Patchouli:1.16.4-51')
+    compileOnly fg.deobf('vazkii.botania:Botania:1.16.5-419:api')
+    runtimeOnly fg.deobf('vazkii.botania:Botania:1.16.5-419')
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
