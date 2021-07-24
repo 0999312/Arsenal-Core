@@ -1,9 +1,13 @@
 package cn.mcmod.chinese_sword.item;
 
+import java.util.function.Consumer;
+
 import cn.mcmod.chinese_sword.ChineseSword;
 import cn.mcmod.chinese_sword.ChineseSwordConfig;
 import cn.mcmod.chinese_sword.compat.curios.CuriosWrapper;
 import cn.mcmod.chinese_sword.compat.curios.CuriosCapProvider;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -38,6 +42,13 @@ public class AncientSwordItem extends SwordItem implements IDrawable {
     public AncientSwordItem(WeaponTier tier, ItemStack sheathItem) {
         this(tier, 5, -1.8F, sheathItem, new Item.Properties().stacksTo(1).tab(ChineseSword.WEAPON_GROUP));
     }
+    
+    @Override
+    public boolean isFoil(ItemStack stackIn) {
+        if(ChineseSwordConfig.NORMAL_SWORD_FOIL.get())
+            return super.isFoil(stackIn);
+        return false;
+    }
 
     @Override
     public ItemStack getSheath(ItemStack stack) {
@@ -61,13 +72,6 @@ public class AncientSwordItem extends SwordItem implements IDrawable {
         return 72000;
     }
 
-    @Override
-    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        ItemStack itemstack = playerIn.getItemInHand(handIn);
-        playerIn.startUsingItem(handIn);
-        return ActionResult.consume(itemstack);
-    }
-
     public WeaponTier getWeaponTier() {
         return tier;
     }
@@ -77,5 +81,40 @@ public class AncientSwordItem extends SwordItem implements IDrawable {
         if (ChineseSword.curiosLoaded)
             return new CuriosCapProvider(new CuriosWrapper(sheath));
         return super.initCapabilities(stack, nbt);
+    }
+    
+    @Override
+    public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
+        if(this.getWeaponTier().getFeature() !=null){
+            this.getWeaponTier().getFeature().onLeftClickEntity(stack, player, entity);
+        }
+        return super.onLeftClickEntity(stack, player, entity);
+    }
+    
+    @Override
+    public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+        if(this.getWeaponTier().getFeature() !=null){
+            this.getWeaponTier().getFeature().inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
+        }
+        super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
+    }
+    
+    @Override
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
+        if(this.getWeaponTier().getFeature() !=null){
+            int feature_damage = this.getWeaponTier().getFeature().damageItem(stack, amount, entity, onBroken);
+            return super.damageItem(stack, amount, entity, onBroken) + feature_damage;
+        }
+        return super.damageItem(stack, amount, entity, onBroken);
+    }
+
+    @Override
+    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        if(this.getWeaponTier().getFeature() !=null){
+            this.getWeaponTier().getFeature().use(worldIn, playerIn, handIn);
+        } 
+        ItemStack itemstack = playerIn.getItemInHand(handIn);
+        playerIn.startUsingItem(handIn);
+        return ActionResult.consume(itemstack);
     }
 }

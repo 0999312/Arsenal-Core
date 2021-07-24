@@ -2,6 +2,7 @@ package cn.mcmod.chinese_sword.item;
 
 import cn.mcmod.chinese_sword.ChineseSwordConfig;
 import cn.mcmod.chinese_sword.Constants;
+import cn.mcmod.chinese_sword.item.feature.XuanyuanFeature;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemTier;
 import net.minecraft.tags.ItemTags;
@@ -53,5 +54,5 @@ public class WeaponTiers {
             new ResourceLocation("forge:ingots/lead"));
 
     public static final WeaponTier MAXIMUM_POWER = new WeaponTier("maximum_power", Constants.MODID, 5, -1, 8F, ChineseSwordConfig.MAXIMUM_POWER_DAMAGE.get().floatValue(), 50,
-            new ResourceLocation("forge:gems/diamond"));
+            new ResourceLocation("forge:gems/diamond"), new XuanyuanFeature());
 }

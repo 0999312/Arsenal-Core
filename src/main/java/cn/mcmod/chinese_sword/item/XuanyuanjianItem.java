@@ -17,6 +17,16 @@ public class XuanyuanjianItem extends AncientSwordItem {
     }
 
     @Override
+    public boolean isDamageable(ItemStack stack) {
+        return false;
+    }
+    
+    @Override
+    public boolean isRepairable(ItemStack stack) {
+        return false;
+    }
+    
+    @Override
     public void appendHoverText(ItemStack stackIn, World levelIn, List<ITextComponent> tooltipIn, ITooltipFlag flagIn) {
         super.appendHoverText(stackIn, levelIn, tooltipIn, flagIn);
         tooltipIn.add(new TranslationTextComponent("tooltip.chinese_sword.xuanyuanjian").withStyle(TextFormatting.GOLD));
