@@ -53,6 +53,14 @@
    "item.chinese_sword.nickel_ancient_sword" : "镍古剑",
    "item.chinese_sword.lead_chinese_sword" : "铅中式剑",
    "item.chinese_sword.lead_ancient_sword" : "铅古剑",
+   "item.chinese_sword.copper_ancient_sword" : "铜古剑",
+   "item.chinese_sword.copper_ancient_sword_sheath" : "铜古剑鞘",
+   "item.chinese_sword.bronze_ancient_sword" : "青铜古剑",
+   "item.chinese_sword.bronze_ancient_sword_sheath" : "青铜古剑鞘",
+   "item.chinese_sword.xuanyuanjian" : "轩辕剑",
+   "item.chinese_sword.xuanyuanjian_sheath" : "轩辕剑之鞘",
+   "tooltip.chinese_sword.xuanyuanjian" : "其内蕴藏无穷之力，为斩妖除魔的神剑。",
+   "tooltip.chinese_sword.xuanyuanjian.not_max" : "并没有发挥一丝力量……",
    "key.draw_sword" : "拔剑",
    "key.category.chinese_sword" : "中式剑"
 }

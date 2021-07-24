@@ -1,8 +1,9 @@
 package cn.mcmod.chinese_sword.item;
 
 import cn.mcmod.chinese_sword.ChineseSword;
+import cn.mcmod.chinese_sword.ChineseSwordConfig;
 import cn.mcmod.chinese_sword.compat.curios.CuriosWrapper;
-import cn.mcmod.chinese_sword.compat.curios.SimpleCapProvider;
+import cn.mcmod.chinese_sword.compat.curios.CuriosCapProvider;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,7 +14,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import top.theillusivec4.curios.api.CuriosCapability;
 
 public class ChineseSwordItem extends SwordItem implements IDrawable {
     private final WeaponTier tier;
@@ -31,6 +31,13 @@ public class ChineseSwordItem extends SwordItem implements IDrawable {
                 new Item.Properties().stacksTo(1).tab(ChineseSword.WEAPON_GROUP));
     }
 
+    @Override
+    public boolean isFoil(ItemStack p_77636_1_) {
+        if(ChineseSwordConfig.NORMAL_SWORD_FOIL.get())
+            return super.isFoil(p_77636_1_);
+        return false;
+    }
+    
     public ChineseSwordItem(WeaponTier tier, ItemStack sheathItem, Properties builderIn) {
         this(tier, 4, -1.6F, sheathItem, builderIn);
     }
@@ -51,7 +58,9 @@ public class ChineseSwordItem extends SwordItem implements IDrawable {
 
     @Override
     public UseAction getUseAnimation(ItemStack stackIn) {
-        return UseAction.BLOCK;
+        if(ChineseSwordConfig.BLOCKING.get())
+            return UseAction.BLOCK;
+        return UseAction.NONE;
     }
 
     @Override
@@ -73,7 +82,7 @@ public class ChineseSwordItem extends SwordItem implements IDrawable {
     @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, CompoundNBT nbt) {
         if (ChineseSword.curiosLoaded)
-            return new SimpleCapProvider<>(CuriosCapability.ITEM, new CuriosWrapper(sheath));
+            return new CuriosCapProvider(new CuriosWrapper(sheath));
         return super.initCapabilities(stack, nbt);
     }
 

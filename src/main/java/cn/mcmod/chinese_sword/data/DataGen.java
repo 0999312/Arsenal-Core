@@ -17,7 +17,7 @@ public class DataGen {
         // 物品模型大量生成的典型案例。
         event.getGenerator().addProvider(new SwordModelProvider(event.getGenerator(), event.getExistingFileHelper()));
         // 生成中式剑Tag的Data Generator, 提供了 public 的两种剑的Tag Builder.
-        // 生成非 Forge和Minecraft 命名域的Tag的典型案例。
+        // 生成非 Forge 和 Minecraft 命名域的Tag的典型案例。
         event.getGenerator().addProvider(new SwordTagsProvider(event.getGenerator(), event.getExistingFileHelper()));
     }
 }

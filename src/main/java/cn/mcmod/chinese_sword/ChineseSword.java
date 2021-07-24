@@ -4,7 +4,9 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -34,6 +36,9 @@ public class ChineseSword {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
 
         ItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON,ChineseSwordConfig.COMMON_CONFIG);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT,ChineseSwordConfig.CLIENT_CONFIG);
     }
 
     private void setup(final FMLCommonSetupEvent event) {

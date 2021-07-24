@@ -28,10 +28,9 @@ public class SwordTagsProvider extends ForgeItemTagsProvider {
     @Override
     public void addTags() {
         ItemRegistry.ITEMS.getEntries().forEach(this::tagSword);
-
     }
 
-    private void tagSword(RegistryObject<Item> item) {
+    public void tagSword(RegistryObject<Item> item) {
         if (item.get() instanceof AncientSwordItem)
             tag(ItemTags.createOptional(new ResourceLocation(Constants.MODID, "ancient_sword"))).add(item.get());
         else if (item.get() instanceof ChineseSwordItem)

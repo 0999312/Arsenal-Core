@@ -50,4 +50,7 @@ public class WeaponTiers {
 
     public static final WeaponTier LEAD = new WeaponTier("lead", Constants.MODID, 1, 240, 4.5F, 2.0F, 5,
             new ResourceLocation("forge:ingots/lead"));
+
+    public static final WeaponTier MAXIMUM_POWER = new WeaponTier("maximum_power", Constants.MODID, 5, -1, 8F, 25F, 50,
+            new ResourceLocation("forge:gems/diamond"));
 }

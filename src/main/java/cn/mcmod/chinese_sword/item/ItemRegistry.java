@@ -46,6 +46,12 @@ public class ItemRegistry {
     public static final RegistryObject<Item> NETHERITE_ANCIENT_SWORD_SHEATH = ITEMS
             .register("netherite_ancient_sword_sheath", SwordSheathItem::new);
 
+    public static final RegistryObject<Item> COPPER_ANCIENT_SWORD_SHEATH = ITEMS.register("copper_ancient_sword_sheath",
+            SwordSheathItem::new);
+
+    public static final RegistryObject<Item> BRONZE_ANCIENT_SWORD_SHEATH = ITEMS.register("bronze_ancient_sword_sheath",
+            SwordSheathItem::new);
+
     public static final RegistryObject<Item> STEEL_CHINESE_SWORD_SHEATH = ITEMS.register("steel_chinese_sword_sheath",
             SwordSheathItem::new);
 
@@ -87,6 +93,12 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> LEAD_ANCIENT_SWORD_SHEATH = ITEMS.register("lead_ancient_sword_sheath",
             SwordSheathItem::new);
+
+    public static final RegistryObject<Item> COPPER_ANCIENT_SWORD = ITEMS.register("copper_ancient_sword",
+            () -> new AncientSwordItem(WeaponTiers.COPPER, new ItemStack(LEAD_ANCIENT_SWORD_SHEATH.get())));
+
+    public static final RegistryObject<Item> BRONZE_ANCIENT_SWORD = ITEMS.register("bronze_ancient_sword",
+            () -> new AncientSwordItem(WeaponTiers.BRONZE, new ItemStack(LEAD_ANCIENT_SWORD_SHEATH.get())));
 
     public static final RegistryObject<Item> WOODEN_CHINESE_SWORD = ITEMS.register("wooden_chinese_sword",
             () -> new ChineseSwordItem(WeaponTiers.WOOD, new ItemStack(WOODEN_CHINESE_SWORD_SHEATH.get())));
@@ -166,4 +178,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> LEAD_ANCIENT_SWORD = ITEMS.register("lead_ancient_sword",
             () -> new AncientSwordItem(WeaponTiers.LEAD, new ItemStack(LEAD_ANCIENT_SWORD_SHEATH.get())));
 
+    public static final RegistryObject<Item> XUANYUANJIAN_SHEATH = ITEMS.register("xuanyuanjian_sheath",
+            SwordSheathItem::new);
+    
+    public static final RegistryObject<Item> XUANYUANJIAN = ITEMS.register("xuanyuanjian", XuanyuanjianItem::new);
+    
 }

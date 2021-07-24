@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "chinese_sword:copper_ancient_sword",
+    "chinese_sword:bronze_ancient_sword",
     "chinese_sword:wooden_ancient_sword",
     "chinese_sword:stone_ancient_sword",
     "chinese_sword:iron_ancient_sword",
@@ -13,6 +15,7 @@
     "chinese_sword:electrum_ancient_sword",
     "chinese_sword:invar_ancient_sword",
     "chinese_sword:nickel_ancient_sword",
-    "chinese_sword:lead_ancient_sword"
+    "chinese_sword:lead_ancient_sword",
+    "chinese_sword:xuanyuanjian"
   ]
 }
