@@ -5,6 +5,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class ChineseSwordConfig {
     public static ForgeConfigSpec COMMON_CONFIG;
     public static ForgeConfigSpec.BooleanValue BLOCKING;
+    public static ForgeConfigSpec.DoubleValue MAXIMUM_POWER_DAMAGE;
     public static ForgeConfigSpec CLIENT_CONFIG;
     public static ForgeConfigSpec.BooleanValue NORMAL_SWORD_FOIL;
     public static ForgeConfigSpec.BooleanValue XUANYUANJIAN_FOIL;
@@ -12,6 +13,7 @@ public class ChineseSwordConfig {
         ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
         COMMON_BUILDER.comment("General settings").push("general");
         BLOCKING = COMMON_BUILDER.comment("Is the sword blockable?").comment("Recommended for environments where right-click behavior is likely to be modified").define("blocking", true);
+        MAXIMUM_POWER_DAMAGE = COMMON_BUILDER.comment("How high is the damage value of xuan yuan jian's power").defineInRange("maximum_power_damage", 25D, 0D, Float.MAX_VALUE);
         COMMON_BUILDER.pop();
         COMMON_CONFIG = COMMON_BUILDER.build();
     }

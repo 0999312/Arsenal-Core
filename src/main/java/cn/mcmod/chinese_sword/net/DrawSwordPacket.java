@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.server.SPlaySoundPacket;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
 import net.minecraftforge.fml.network.NetworkEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotTypePreset;
@@ -66,7 +66,7 @@ public class DrawSwordPacket {
                         player.drop(player.getMainHandItem(), false);
                 // 播放拔剑音效，取玩家攻击音。
                 // 不造成实际攻击。
-                player.connection.send(new SPlaySoundPacket(SoundEvents.PLAYER_ATTACK_SWEEP.getLocation(),
+                player.connection.send(new SPlaySoundPacket(new ResourceLocation("entity.player.attack.sweep"),
                         SoundCategory.PLAYERS, player.position(), 1F, 1F));
                 stackHandler.extractItem(i, 1, false);
                 return;
