@@ -10,17 +10,12 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 public class XuanyuanFeature extends WeaponFeature {
 
     public XuanyuanFeature() {
         super("maximum_power");
-    }
-
-    @Override
-    public void use(World worldIn, PlayerEntity playerIn, Hand handIn) {
     }
 
     @Override

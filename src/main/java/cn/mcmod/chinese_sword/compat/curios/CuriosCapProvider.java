@@ -3,6 +3,7 @@ package cn.mcmod.chinese_sword.compat.curios;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
@@ -13,8 +14,8 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 public class CuriosCapProvider implements ICapabilityProvider {
     private final ICurio capInstance;
 
-    public CuriosCapProvider(ICurio capInstance) {
-        this.capInstance = capInstance;
+    public CuriosCapProvider(ItemStack sheath) {
+        this.capInstance = new CuriosWrapper(sheath);
     }
 
     @Nonnull

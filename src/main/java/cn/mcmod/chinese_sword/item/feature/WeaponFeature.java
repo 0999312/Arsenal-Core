@@ -6,7 +6,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 public abstract class WeaponFeature {
@@ -19,9 +18,7 @@ public abstract class WeaponFeature {
     public String getName() {
         return name;
     }
-    
-    public abstract void use(World worldIn, PlayerEntity playerIn, Hand handIn);
-    
+
     public abstract void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected);
     
     public abstract void onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity);

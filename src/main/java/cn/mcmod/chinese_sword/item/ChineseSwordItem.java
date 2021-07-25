@@ -4,7 +4,6 @@ import java.util.function.Consumer;
 
 import cn.mcmod.chinese_sword.ChineseSword;
 import cn.mcmod.chinese_sword.ChineseSwordConfig;
-import cn.mcmod.chinese_sword.compat.curios.CuriosWrapper;
 import cn.mcmod.chinese_sword.compat.curios.CuriosCapProvider;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -79,7 +78,7 @@ public class ChineseSwordItem extends SwordItem implements IDrawable {
     @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, CompoundNBT nbt) {
         if (ChineseSword.curiosLoaded)
-            return new CuriosCapProvider(new CuriosWrapper(sheath));
+            return new CuriosCapProvider(sheath);
         return super.initCapabilities(stack, nbt);
     }
 
@@ -110,9 +109,6 @@ public class ChineseSwordItem extends SwordItem implements IDrawable {
 
     @Override
     public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        if(this.getWeaponTier().getFeature() !=null){
-            this.getWeaponTier().getFeature().use(worldIn, playerIn, handIn);
-        } 
         ItemStack itemstack = playerIn.getItemInHand(handIn);
         playerIn.startUsingItem(handIn);
         return ActionResult.consume(itemstack);
