@@ -1,10 +1,12 @@
 package cn.mcmod.chinese_sword.item;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 import cn.mcmod.chinese_sword.ChineseSword;
 import cn.mcmod.chinese_sword.ChineseSwordConfig;
 import cn.mcmod.chinese_sword.compat.curios.CuriosCapProvider;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,6 +17,9 @@ import net.minecraft.item.UseAction;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
@@ -40,6 +45,15 @@ public class AncientSwordItem extends SwordItem implements IDrawable {
 
     public AncientSwordItem(WeaponTier tier, ItemStack sheathItem) {
         this(tier, 5, -1.8F, sheathItem, new Item.Properties().stacksTo(1).tab(ChineseSword.WEAPON_GROUP));
+    }
+    
+    @Override
+    public void appendHoverText(ItemStack stackIn, World levelIn, List<ITextComponent> tooltipIn, ITooltipFlag flagIn) {
+        super.appendHoverText(stackIn, levelIn, tooltipIn, flagIn);
+        tooltipIn.add(new TranslationTextComponent("tooltip.chinese_sword.tiers").append(new TranslationTextComponent("tier.chinese_sword."+this.getWeaponTier().getUnlocalizedName())));
+        if(this.getWeaponTier().getFeature()!=null) {
+            tooltipIn.add(new TranslationTextComponent("tooltip.chinese_sword.feature."+this.getWeaponTier().getFeature().getName()).withStyle(TextFormatting.GOLD));
+        }
     }
 
     @Override
