@@ -1,5 +1,7 @@
 package cn.mcmod.chinese_sword.item;
 
+import java.util.function.Supplier;
+
 import cn.mcmod.chinese_sword.Constants;
 import cn.mcmod.chinese_sword.item.feature.WeaponFeature;
 import net.minecraft.item.IItemTier;
@@ -16,13 +18,12 @@ public class WeaponTier implements IItemTier {
     private float baseDamage;
     private final int enchantability;
     private final LazyValue<Ingredient> repairMaterial;
-    private final ResourceLocation tagName;
     private String name;
     private String modId = Constants.MODID;
     private final WeaponFeature feature;
 
     public WeaponTier(String unlocName, String modId, int harvestLevel, int maxUses, float efficiency, float baseDamage,
-            int enchantability, ResourceLocation tagName, WeaponFeature feature) {
+            int enchantability, Supplier<Ingredient> repairMaterial, WeaponFeature feature) {
         this.setUnlocalizedName(unlocName);
         this.setModId(modId);
         this.harvestLevel = harvestLevel;
@@ -30,44 +31,48 @@ public class WeaponTier implements IItemTier {
         this.efficiency = efficiency;
         this.baseDamage = baseDamage;
         this.enchantability = enchantability;
-        this.tagName = tagName;
-        this.repairMaterial = new LazyValue<Ingredient>(() -> Ingredient.of(ItemTags.getAllTags().getTag(tagName)));
+        this.repairMaterial = new LazyValue<Ingredient>(repairMaterial);
         this.feature = feature;
+    }
+
+    public WeaponTier(String unlocName, String modId, int harvestLevel, int maxUses, float efficiency, float baseDamage,
+            int enchantability, ResourceLocation tagName, WeaponFeature feature) {
+        this(unlocName, modId, harvestLevel, maxUses, efficiency, baseDamage, enchantability,
+                () -> Ingredient.of(ItemTags.getAllTags().getTag(tagName)), feature);
     }
 
     public WeaponTier(String unlocName, int harvestLevel, int maxUses, float efficiency, float baseDamage,
             int enchantability, ResourceLocation tagName, WeaponFeature feature) {
-        this(unlocName, Constants.MODID, harvestLevel, maxUses, efficiency, baseDamage, enchantability, tagName,
-                feature);
+        this(unlocName, Constants.MODID, harvestLevel, maxUses, efficiency, baseDamage, enchantability,
+                () -> Ingredient.of(ItemTags.getAllTags().getTag(tagName)), feature);
     }
 
     public WeaponTier(String unlocName, String modId, IItemTier itemTier, ResourceLocation tagName,
             WeaponFeature feature) {
         this(unlocName, modId, itemTier.getLevel(), itemTier.getUses(), itemTier.getSpeed(),
-                itemTier.getAttackDamageBonus(), itemTier.getEnchantmentValue(), tagName, feature);
+                itemTier.getAttackDamageBonus(), itemTier.getEnchantmentValue(),
+                () -> Ingredient.of(ItemTags.getAllTags().getTag(tagName)), feature);
     }
 
     public WeaponTier(String unlocName, IItemTier itemTier, ResourceLocation tagName, WeaponFeature feature) {
         this(unlocName, Constants.MODID, itemTier, tagName, feature);
     }
-    
+
     public WeaponTier(String unlocName, int harvestLevel, int maxUses, float efficiency, float baseDamage,
-            int enchantability, ResourceLocation tagName) {
-        this(unlocName, Constants.MODID, harvestLevel, maxUses, efficiency, baseDamage, enchantability, tagName, null);
+            int enchantability, Supplier<Ingredient> repairMaterial, WeaponFeature feature) {
+        this(unlocName, Constants.MODID, harvestLevel, maxUses, efficiency, baseDamage, enchantability, repairMaterial,
+                feature);
     }
 
-    public WeaponTier(String unlocName, String modId, IItemTier itemTier, ResourceLocation tagName) {
+    public WeaponTier(String unlocName, String modId, IItemTier itemTier, Supplier<Ingredient> repairMaterial,
+            WeaponFeature feature) {
         this(unlocName, modId, itemTier.getLevel(), itemTier.getUses(), itemTier.getSpeed(),
-                itemTier.getAttackDamageBonus(), itemTier.getEnchantmentValue(), tagName, null);
+                itemTier.getAttackDamageBonus(), itemTier.getEnchantmentValue(), repairMaterial, feature);
     }
 
-    public WeaponTier(String unlocName, IItemTier itemTier, ResourceLocation tagName) {
-        this(unlocName, Constants.MODID, itemTier, tagName, null);
-    }
-
-    public WeaponTier(String unlocName, String modId, int harvestLevel, int maxUses, float efficiency, float baseDamage,
-            int enchantability, ResourceLocation tagName) {
-        this(unlocName, modId, harvestLevel, maxUses, efficiency, baseDamage, enchantability, tagName, null);
+    public WeaponTier(String unlocName, IItemTier itemTier, Supplier<Ingredient> repairMaterial,
+            WeaponFeature feature) {
+        this(unlocName, Constants.MODID, itemTier, repairMaterial, feature);
     }
 
     @Override
@@ -98,10 +103,6 @@ public class WeaponTier implements IItemTier {
     @Override
     public int getUses() {
         return maxUses;
-    }
-
-    public ResourceLocation getTagName() {
-        return this.tagName;
     }
 
     public String getModId() {

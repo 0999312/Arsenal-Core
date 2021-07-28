@@ -22,15 +22,11 @@ public class SheathRecipes extends ForgeRecipeProvider {
 
     @Override
     protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(ItemRegistry.XUANYUANJIAN.get())
-        .pattern("IDI")
-        .pattern("SLS")
-        .pattern("ISI")
-        .define('I', Ingredient.of(Tags.Items.STORAGE_BLOCKS_DIAMOND))
-        .define('L', Ingredient.of(ItemRegistry.NETHERITE_ANCIENT_SWORD.get()))
-        .define('D', Ingredient.of(Items.DRAGON_EGG))
-        .define('S', Ingredient.of(Tags.Items.NETHER_STARS))
-        .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.DRAGON_EGG)).save(consumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.XUANYUANJIAN.get()).pattern("IDI").pattern("SLS").pattern("ISI")
+                .define('I', Ingredient.of(Tags.Items.STORAGE_BLOCKS_DIAMOND))
+                .define('L', Ingredient.of(ItemRegistry.NETHERITE_ANCIENT_SWORD.get()))
+                .define('D', Ingredient.of(Items.DRAGON_EGG)).define('S', Ingredient.of(Tags.Items.NETHER_STARS))
+                .unlockedBy("ingredient", InventoryChangeTrigger.Instance.hasItems(Items.DRAGON_EGG)).save(consumer);
         ShapedRecipeBuilder.shaped(ItemRegistry.NETHERITE_ANCIENT_SWORD_SHEATH.get()).pattern("  I").pattern(" L ")
                 .pattern("PS ").define('I', Ingredient.of(Tags.Items.INGOTS_NETHERITE))
                 .define('L', Ingredient.of(ItemTags.LOGS)).define('P', Ingredient.of(ItemTags.PLANKS))

@@ -41,10 +41,10 @@ public class AncientSwordItem extends SwordItem implements IDrawable {
     public AncientSwordItem(WeaponTier tier, ItemStack sheathItem) {
         this(tier, 5, -1.8F, sheathItem, new Item.Properties().stacksTo(1).tab(ChineseSword.WEAPON_GROUP));
     }
-    
+
     @Override
     public boolean isFoil(ItemStack stackIn) {
-        if(ChineseSwordConfig.NORMAL_SWORD_FOIL.get())
+        if (ChineseSwordConfig.NORMAL_SWORD_FOIL.get())
             return super.isFoil(stackIn);
         return false;
     }
@@ -61,7 +61,7 @@ public class AncientSwordItem extends SwordItem implements IDrawable {
 
     @Override
     public UseAction getUseAnimation(ItemStack stackIn) {
-        if(ChineseSwordConfig.BLOCKING.get())
+        if (ChineseSwordConfig.BLOCKING.get())
             return UseAction.BLOCK;
         return UseAction.NONE;
     }
@@ -81,26 +81,27 @@ public class AncientSwordItem extends SwordItem implements IDrawable {
             return new CuriosCapProvider(sheath);
         return super.initCapabilities(stack, nbt);
     }
-    
+
     @Override
     public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
-        if(this.getWeaponTier().getFeature() !=null){
-            this.getWeaponTier().getFeature().onLeftClickEntity(stack, player, entity);
+        boolean result = super.onLeftClickEntity(stack, player, entity);
+        if (this.getWeaponTier().getFeature() != null) {
+            return result || this.getWeaponTier().getFeature().onLeftClickEntity(stack, player, entity);
         }
-        return super.onLeftClickEntity(stack, player, entity);
+        return result;
     }
-    
+
     @Override
     public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-        if(this.getWeaponTier().getFeature() !=null){
+        super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
+        if (this.getWeaponTier().getFeature() != null) {
             this.getWeaponTier().getFeature().inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
         }
-        super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
     }
-    
+
     @Override
     public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
-        if(this.getWeaponTier().getFeature() !=null){
+        if (this.getWeaponTier().getFeature() != null) {
             int feature_damage = this.getWeaponTier().getFeature().damageItem(stack, amount, entity, onBroken);
             return super.damageItem(stack, amount, entity, onBroken) + feature_damage;
         }

@@ -36,9 +36,9 @@ public class ChineseSword {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
 
         ItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON,ChineseSwordConfig.COMMON_CONFIG);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT,ChineseSwordConfig.CLIENT_CONFIG);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ChineseSwordConfig.COMMON_CONFIG);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ChineseSwordConfig.CLIENT_CONFIG);
     }
 
     private void setup(final FMLCommonSetupEvent event) {

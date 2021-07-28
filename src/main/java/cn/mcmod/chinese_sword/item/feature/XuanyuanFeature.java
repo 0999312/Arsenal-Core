@@ -23,16 +23,17 @@ public class XuanyuanFeature extends WeaponFeature {
     }
 
     @Override
-    public void onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
-        if(entity instanceof LivingEntity) {
+    public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
+        if (entity instanceof LivingEntity) {
             int fire_level = 1 + EnchantmentHelper.getFireAspect(player);
-            LivingEntity living = (LivingEntity)entity;
+            LivingEntity living = (LivingEntity) entity;
             living.setSecondsOnFire(4 * fire_level);
-            if(living.getMobType() == CreatureAttribute.UNDEAD) {
-                int smite_level = 1 + EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SMITE,stack);
+            if (living.getMobType() == CreatureAttribute.UNDEAD) {
+                int smite_level = 1 + EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SMITE, stack);
                 living.hurt(DamageSource.MAGIC, 5 * smite_level);
             }
         }
+        return false;
     }
 
     @Override

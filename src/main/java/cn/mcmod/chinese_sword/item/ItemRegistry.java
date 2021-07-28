@@ -180,7 +180,7 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> XUANYUANJIAN_SHEATH = ITEMS.register("xuanyuanjian_sheath",
             SwordSheathItem::new);
-    
+
     public static final RegistryObject<Item> XUANYUANJIAN = ITEMS.register("xuanyuanjian", XuanyuanjianItem::new);
-    
+
 }
