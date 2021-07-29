@@ -46,13 +46,15 @@ public class ChineseSwordItem extends SwordItem implements IDrawable {
     public ChineseSwordItem(WeaponTier tier, ItemStack sheathItem) {
         this(tier, 4, -1.6F, sheathItem, new Item.Properties().stacksTo(1).tab(ChineseSword.WEAPON_GROUP));
     }
-    
+
     @Override
     public void appendHoverText(ItemStack stackIn, World levelIn, List<ITextComponent> tooltipIn, ITooltipFlag flagIn) {
         super.appendHoverText(stackIn, levelIn, tooltipIn, flagIn);
-        tooltipIn.add(new TranslationTextComponent("tooltip.chinese_sword.tiers").append(new TranslationTextComponent("tier.chinese_sword."+this.getWeaponTier().getUnlocalizedName())));
-        if(this.getWeaponTier().getFeature()!=null) {
-            tooltipIn.add(new TranslationTextComponent("tooltip.chinese_sword.feature."+this.getWeaponTier().getFeature().getName()).withStyle(TextFormatting.GOLD));
+        tooltipIn.add(new TranslationTextComponent("tooltip.chinese_sword.tiers").append(
+                new TranslationTextComponent("tier.chinese_sword." + this.getWeaponTier().getUnlocalizedName())));
+        if (this.getWeaponTier().getFeature() != null) {
+            tooltipIn.add(new TranslationTextComponent(
+                    "tooltip.chinese_sword.feature." + this.getWeaponTier().getFeature().getName()).withStyle(TextFormatting.GOLD));
         }
     }
 

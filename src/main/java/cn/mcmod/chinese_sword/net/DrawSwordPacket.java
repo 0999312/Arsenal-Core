@@ -63,7 +63,7 @@ public class DrawSwordPacket {
                 // 不能，则丢出物品。
                 if (!mainHandItem.isEmpty())
                     if (!player.addItem(mainHandItem))
-                        player.drop(player.getMainHandItem(), false);
+                        player.drop(mainHandItem, false);
                 // 播放拔剑音效，取玩家攻击音。
                 // 不造成实际攻击。
                 player.connection.send(new SPlaySoundPacket(new ResourceLocation("entity.player.attack.sweep"),

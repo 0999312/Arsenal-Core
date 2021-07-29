@@ -39,7 +39,6 @@ public class CuriosWrapper implements ICurio {
             matrixStack.pushPose();
             ICurio.RenderHelper.translateIfSneaking(matrixStack, livingEntity);
             ICurio.RenderHelper.rotateIfSneaking(matrixStack, livingEntity);
-
             matrixStack.translate(-0.15D, -0.825D, 0D);
             matrixStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));
             matrixStack.mulPose(Vector3f.XP.rotationDegrees(180.0F));

@@ -29,7 +29,7 @@ public class SwordTagsProvider extends ForgeItemTagsProvider {
     public void addTags() {
         ItemRegistry.ITEMS.getEntries().forEach(this::tagSword);
     }
-    
+
     public void tagSword(RegistryObject<Item> item) {
         if (item.get() instanceof AncientSwordItem)
             tag(ItemTags.createOptional(new ResourceLocation(Constants.MODID, "ancient_sword"))).add(item.get());

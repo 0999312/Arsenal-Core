@@ -9,7 +9,8 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 
 public class WeaponTiers {
-    public static final WeaponTier WOOD = new WeaponTier("wood", (IItemTier) ItemTier.WOOD, ItemTags.PLANKS.getName(), null);
+    public static final WeaponTier WOOD = new WeaponTier("wood", (IItemTier) ItemTier.WOOD, ItemTags.PLANKS.getName(),
+            null);
 
     public static final WeaponTier STONE = new WeaponTier("stone", (IItemTier) ItemTier.STONE,
             new ResourceLocation("forge:cobblestone"), null);
