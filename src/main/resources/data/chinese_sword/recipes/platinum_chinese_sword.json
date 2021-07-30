@@ -1,26 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  I",
-    " L ",
-    "PS "
+    " S",
+    "B "
   ],
   "key": {
-    "I": {
-      "tag": "forge:ingots/platinum"
-    },
-    "L": {
-      "tag": "minecraft:logs"
-    },
-    "P": {
-      "tag": "minecraft:planks"
+    "B": {
+      "item": "minecraft:iron_sword"
     },
     "S": {
-      "tag": "forge:string"
+      "item": "chinese_sword:platinum_chinese_sword_sheath"
     }
   },
   "result": {
-    "item": "chinese_sword:platinum_ancient_sword_sheath"
+    "item": "chinese_sword:platinum_chinese_sword"
   },
   "conditions" : [
     {

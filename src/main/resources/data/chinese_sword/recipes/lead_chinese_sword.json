@@ -1,26 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  I",
-    " L ",
-    "PS "
+    " S",
+    "B "
   ],
   "key": {
-    "I": {
-      "tag": "forge:ingots/lead"
-    },
-    "L": {
-      "tag": "minecraft:logs"
-    },
-    "P": {
-      "tag": "minecraft:planks"
+    "B": {
+      "item": "minecraft:stone_sword"
     },
     "S": {
-      "tag": "forge:string"
+      "item": "chinese_sword:lead_chinese_sword_sheath"
     }
   },
   "result": {
-    "item": "chinese_sword:lead_ancient_sword_sheath"
+    "item": "chinese_sword:lead_chinese_sword"
   },
   "conditions" : [
     {

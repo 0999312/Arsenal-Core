@@ -1,7 +1,0 @@
-{
-  "parent": "chinese_sword:item/ancient_sword_sheath",
-  "textures": {
-    "0": "chinese_sword:item/lead_sword",
-    "1": "minecraft:block/dark_oak_log"
-  }
-}

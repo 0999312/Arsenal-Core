@@ -1,11 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  P",
+    "  I",
     " L ",
     "PS "
   ],
   "key": {
+    "I": {
+      "tag": "minecraft:planks"
+    },
     "L": {
       "tag": "minecraft:logs"
     },

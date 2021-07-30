@@ -21,5 +21,14 @@
   },
   "result": {
     "item": "chinese_sword:electrum_chinese_sword_sheath"
-  }
+  },
+  "conditions" : [
+    {
+        "type" : "forge_not",
+        "value" : {
+            "type" : "forge:tag_empty",
+            "tag" : "forge:ingots/electrum"
+        }
+    }
+  ]
 }

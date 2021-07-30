@@ -21,5 +21,14 @@
   },
   "result": {
     "item": "chinese_sword:steel_ancient_sword_sheath"
-  }
+  },
+  "conditions" : [
+    {
+        "type" : "forge_not",
+        "value" : {
+            "type" : "forge:tag_empty",
+            "tag" : "forge:ingots/steel"
+        }
+    }
+  ]
 }
