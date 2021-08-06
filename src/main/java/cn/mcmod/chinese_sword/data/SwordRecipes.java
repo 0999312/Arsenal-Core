@@ -41,7 +41,7 @@ public class SwordRecipes extends ForgeRecipeProvider {
                 Ingredient.of(Tags.Items.INGOTS_GOLD), Ingredient.of(Items.GOLDEN_SWORD));
         registerSwordRecipes(consumer, ItemRegistry.DIAMOND_CHINESE_SWORD.get(), ItemRegistry.DIAMOND_ANCIENT_SWORD.get(),
                 ItemRegistry.DIAMOND_CHINESE_SWORD_SHEATH.get(), ItemRegistry.DIAMOND_ANCIENT_SWORD_SHEATH.get(),
-                Ingredient.of(Tags.Items.INGOTS_IRON), Ingredient.of(Items.IRON_SWORD));
+                Ingredient.of(Tags.Items.GEMS_DIAMOND), Ingredient.of(Items.IRON_SWORD));
         registerSwordRecipes(consumer, ItemRegistry.NETHERITE_CHINESE_SWORD.get(), ItemRegistry.NETHERITE_ANCIENT_SWORD.get(),
                 ItemRegistry.NETHERITE_CHINESE_SWORD_SHEATH.get(), ItemRegistry.NETHERITE_ANCIENT_SWORD_SHEATH.get(),
                 Ingredient.of(Tags.Items.INGOTS_NETHERITE), Ingredient.of(Items.NETHERITE_SWORD));
