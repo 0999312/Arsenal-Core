@@ -84,7 +84,7 @@ public class AncientSwordItem extends SwordItem implements IDrawable {
 
     @Override
     public int getUseDuration(ItemStack stackIn) {
-        return 72000;
+        return 36000;
     }
 
     public WeaponTier getWeaponTier() {
@@ -122,6 +122,11 @@ public class AncientSwordItem extends SwordItem implements IDrawable {
             return super.damageItem(stack, amount, entity, onBroken) + feature_damage;
         }
         return super.damageItem(stack, amount, entity, onBroken);
+    }
+
+    @Override
+    public boolean isShield(ItemStack stack, LivingEntity entity) {
+        return true;
     }
 
     @Override

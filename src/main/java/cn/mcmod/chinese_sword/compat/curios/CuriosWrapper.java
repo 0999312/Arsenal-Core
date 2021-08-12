@@ -39,9 +39,12 @@ public class CuriosWrapper implements ICurio {
             matrixStack.pushPose();
             ICurio.RenderHelper.translateIfSneaking(matrixStack, livingEntity);
             ICurio.RenderHelper.rotateIfSneaking(matrixStack, livingEntity);
-            matrixStack.translate(-0.15D, -0.825D, 0D);
+//          雪傀儡的HEAD渲染
+//          请务必注意，因为BlockBench的“头部”以雪傀儡头部南瓜头的渲染为标准。
+//          这对制作模型等有着重要的参考意义。
+            matrixStack.translate(0D, -0.34375D, 0.0D);
             matrixStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));
-            matrixStack.mulPose(Vector3f.XP.rotationDegrees(180.0F));
+            matrixStack.scale(0.625F, -0.625F, -0.625F);
             Minecraft.getInstance().getItemRenderer().renderStatic(livingEntity, sheath,
                     ItemCameraTransforms.TransformType.HEAD, false, matrixStack, renderTypeBuffer, livingEntity.level,
                     light, OverlayTexture.NO_OVERLAY);

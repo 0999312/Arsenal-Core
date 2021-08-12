@@ -95,10 +95,10 @@ public class ItemRegistry {
             SwordSheathItem::new);
 
     public static final RegistryObject<Item> COPPER_ANCIENT_SWORD = ITEMS.register("copper_ancient_sword",
-            () -> new AncientSwordItem(WeaponTiers.COPPER, new ItemStack(LEAD_ANCIENT_SWORD_SHEATH.get())));
+            () -> new AncientSwordItem(WeaponTiers.COPPER, new ItemStack(COPPER_ANCIENT_SWORD_SHEATH.get())));
 
     public static final RegistryObject<Item> BRONZE_ANCIENT_SWORD = ITEMS.register("bronze_ancient_sword",
-            () -> new AncientSwordItem(WeaponTiers.BRONZE, new ItemStack(LEAD_ANCIENT_SWORD_SHEATH.get())));
+            () -> new AncientSwordItem(WeaponTiers.BRONZE, new ItemStack(BRONZE_ANCIENT_SWORD_SHEATH.get())));
 
     public static final RegistryObject<Item> WOODEN_CHINESE_SWORD = ITEMS.register("wooden_chinese_sword",
             () -> new ChineseSwordItem(WeaponTiers.WOOD, new ItemStack(WOODEN_CHINESE_SWORD_SHEATH.get())));

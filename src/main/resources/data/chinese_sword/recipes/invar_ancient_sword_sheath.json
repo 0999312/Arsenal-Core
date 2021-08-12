@@ -7,7 +7,7 @@
   ],
   "key": {
     "I": {
-      "tag": "forge:ingots/platinum"
+      "tag": "forge:ingots/invar"
     },
     "L": {
       "tag": "minecraft:logs"
@@ -20,14 +20,14 @@
     }
   },
   "result": {
-    "item": "chinese_sword:platinum_ancient_sword_sheath"
+    "item": "chinese_sword:invar_ancient_sword_sheath"
   },
   "conditions" : [
     {
-        "type" : "forge_not",
+        "type" : "forge:not",
         "value" : {
             "type" : "forge:tag_empty",
-            "tag" : "forge:ingots/platinum"
+            "tag" : "forge:ingots/invar"
         }
     }
   ]

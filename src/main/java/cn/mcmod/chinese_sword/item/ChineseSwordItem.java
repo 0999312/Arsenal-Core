@@ -100,18 +100,19 @@ public class ChineseSwordItem extends SwordItem implements IDrawable {
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
+        boolean result = super.onLeftClickEntity(stack, player, entity);
         if (this.getWeaponTier().getFeature() != null) {
-            this.getWeaponTier().getFeature().onLeftClickEntity(stack, player, entity);
+            return result || this.getWeaponTier().getFeature().onLeftClickEntity(stack, player, entity);
         }
-        return super.onLeftClickEntity(stack, player, entity);
+        return result;
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+        super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
         if (this.getWeaponTier().getFeature() != null) {
             this.getWeaponTier().getFeature().inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
         }
-        super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
     }
 
     @Override
@@ -121,6 +122,11 @@ public class ChineseSwordItem extends SwordItem implements IDrawable {
             return super.damageItem(stack, amount, entity, onBroken) + feature_damage;
         }
         return super.damageItem(stack, amount, entity, onBroken);
+    }
+    
+    @Override
+    public boolean isShield(ItemStack stack, LivingEntity entity) {
+        return true;
     }
 
     @Override

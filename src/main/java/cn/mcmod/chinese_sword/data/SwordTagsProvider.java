@@ -24,7 +24,7 @@ public class SwordTagsProvider extends ForgeItemTagsProvider {
     public String getName() {
         return "Chinese Style Sword Tags";
     }
-
+    
     @Override
     public void addTags() {
         ItemRegistry.ITEMS.getEntries().forEach(this::tagSword);

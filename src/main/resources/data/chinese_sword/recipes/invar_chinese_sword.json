@@ -9,18 +9,18 @@
       "item": "minecraft:iron_sword"
     },
     "S": {
-      "item": "chinese_sword:steel_chinese_sword_sheath"
+      "item": "chinese_sword:invar_chinese_sword_sheath"
     }
   },
   "result": {
-    "item": "chinese_sword:steel_chinese_sword"
+    "item": "chinese_sword:invar_chinese_sword"
   },
   "conditions" : [
     {
-        "type" : "forge_not",
+        "type" : "forge:not",
         "value" : {
             "type" : "forge:tag_empty",
-            "tag" : "forge:ingots/steel"
+            "tag" : "forge:ingots/invar"
         }
     }
   ]
