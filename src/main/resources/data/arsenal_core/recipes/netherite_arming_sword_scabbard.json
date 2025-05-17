@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  I",
+    " L ",
+    "P  "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/netherite"
+    },
+    "L": {
+      "tag": "forge:leather"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "arsenal_core:netherite_arming_sword_scabbard"
+  }
+}

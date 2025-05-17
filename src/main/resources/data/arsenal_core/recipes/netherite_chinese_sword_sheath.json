@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " IL",
+    " L ",
+    "PS "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/netherite"
+    },
+    "L": {
+      "tag": "minecraft:logs"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "S": {
+      "tag": "forge:string"
+    }
+  },
+  "result": {
+    "item": "arsenal_core:netherite_chinese_sword_sheath"
+  }
+}
