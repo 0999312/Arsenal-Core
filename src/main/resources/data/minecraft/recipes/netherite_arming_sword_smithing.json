@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "arsenal_core:diamond_arming_sword"
+  },
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "result": {
+    "item": "arsenal_core:netherite_arming_sword"
+  }
+}

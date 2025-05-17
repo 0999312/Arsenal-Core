@@ -1,6 +1,0 @@
-{
-  "parent": "chinese_sword:item/chinese_sword_blocking",
-  "textures": {
-    "0": "chinese_sword:item/wooden_sword"
-  }
-}
