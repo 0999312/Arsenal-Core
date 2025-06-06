@@ -1,18 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " S",
-    "B "
-  ],
-  "key": {
-    "B": {
-      "item": "minecraft:wooden_sword"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " S",
+        "B "
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:wooden_sword"
+        },
+        "S": {
+            "item": "arsenal_core:wooden_smallsword_scabbard"
+        }
     },
-    "S": {
-      "item": "arsenal_core:wooden_smallsword_scabbard"
+    "result": {
+        "item": "arsenal_core:wooden_smallsword"
     }
-  },
-  "result": {
-    "item": "arsenal_core:wooden_smallsword"
-  }
 }

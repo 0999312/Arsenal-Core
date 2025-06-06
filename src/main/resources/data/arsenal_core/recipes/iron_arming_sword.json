@@ -1,18 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " S",
-    "B "
-  ],
-  "key": {
-    "B": {
-      "item": "minecraft:iron_sword"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " S",
+        "B "
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:iron_sword"
+        },
+        "S": {
+            "item": "arsenal_core:iron_arming_sword_scabbard"
+        }
     },
-    "S": {
-      "item": "arsenal_core:iron_arming_sword_scabbard"
+    "result": {
+        "item": "arsenal_core:iron_arming_sword"
     }
-  },
-  "result": {
-    "item": "arsenal_core:iron_arming_sword"
-  }
 }

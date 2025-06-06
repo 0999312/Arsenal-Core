@@ -1,34 +1,34 @@
 {
-  "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "arsenal_core:xuanyuanjian"
-    ]
-  },
-  "criteria": {
-    "ingredient": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:dragon_egg"
-            ]
-          }
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "arsenal_core:xuanyuanjian"
         ]
-      }
     },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "arsenal_core:xuanyuanjian"
-      }
-    }
-  },
-  "requirements": [
-    [
-      "ingredient",
-      "has_the_recipe"
+    "criteria": {
+        "ingredient": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:dragon_egg"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "arsenal_core:xuanyuanjian"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "ingredient",
+            "has_the_recipe"
+        ]
     ]
-  ]
 }

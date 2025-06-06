@@ -1,22 +1,22 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " IL",
-    " L ",
-    "P  "
-  ],
-  "key": {
-    "I": {
-      "tag": "forge:cobblestone"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " IL",
+        " L ",
+        "P  "
+    ],
+    "key": {
+        "I": {
+            "tag": "forge:cobblestone"
+        },
+        "L": {
+            "tag": "forge:leather"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        }
     },
-    "L": {
-      "tag": "forge:leather"
-    },
-    "P": {
-      "tag": "minecraft:planks"
+    "result": {
+        "item": "arsenal_core:stone_longsword_scabbard"
     }
-  },
-  "result": {
-    "item": "arsenal_core:stone_longsword_scabbard"
-  }
 }

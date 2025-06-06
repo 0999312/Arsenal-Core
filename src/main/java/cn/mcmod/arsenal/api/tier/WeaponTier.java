@@ -88,7 +88,7 @@ public class WeaponTier implements Tier {
     }
 
     @Override
-    @Deprecated // FORGE: Use TierSortingRegistry to define which tiers are better than others
+    @Deprecated
     public int getLevel() {
         return this.harvestLevel;
     }

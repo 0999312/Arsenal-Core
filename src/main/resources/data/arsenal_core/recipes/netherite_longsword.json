@@ -1,18 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " S",
-    "B "
-  ],
-  "key": {
-    "B": {
-      "item": "minecraft:netherite_sword"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " S",
+        "B "
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:netherite_sword"
+        },
+        "S": {
+            "item": "arsenal_core:netherite_longsword_scabbard"
+        }
     },
-    "S": {
-      "item": "arsenal_core:netherite_longsword_scabbard"
+    "result": {
+        "item": "arsenal_core:netherite_longsword"
     }
-  },
-  "result": {
-    "item": "arsenal_core:netherite_longsword"
-  }
 }

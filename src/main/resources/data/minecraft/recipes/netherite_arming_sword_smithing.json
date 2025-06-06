@@ -1,5 +1,8 @@
 {
   "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  },
   "base": {
     "item": "arsenal_core:diamond_arming_sword"
   },

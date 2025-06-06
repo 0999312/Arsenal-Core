@@ -1,18 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " S",
-    "B "
-  ],
-  "key": {
-    "B": {
-      "item": "minecraft:golden_sword"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " S",
+        "B "
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:golden_sword"
+        },
+        "S": {
+            "item": "arsenal_core:golden_chinese_sword_sheath"
+        }
     },
-    "S": {
-      "item": "arsenal_core:golden_chinese_sword_sheath"
+    "result": {
+        "item": "arsenal_core:golden_chinese_sword"
     }
-  },
-  "result": {
-    "item": "arsenal_core:golden_chinese_sword"
-  }
 }

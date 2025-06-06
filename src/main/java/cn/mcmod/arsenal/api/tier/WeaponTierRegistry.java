@@ -5,12 +5,14 @@
 
 package cn.mcmod.arsenal.api.tier;
 
+import cn.mcmod.arsenal.ArsenalCore;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import java.util.Set;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.TierSortingRegistry;
+import net.neoforged.neoforge.common.TierSortingRegistry;
+
 import java.util.List;
 
 public class WeaponTierRegistry {
@@ -67,7 +69,7 @@ public class WeaponTierRegistry {
      * @param tier 要注册的层级
      */
     public static void registerToSorting(WeaponTier tier) {
-        ResourceLocation name = new ResourceLocation("arsenal_core", tier.getUnlocalizedName());
+        ResourceLocation name = new ResourceLocation(ArsenalCore.MODID, tier.getUnlocalizedName());
         TierSortingRegistry.registerTier(tier, name, List.of(), List.of());
     }
 

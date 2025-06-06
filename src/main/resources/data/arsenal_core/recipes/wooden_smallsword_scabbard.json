@@ -1,25 +1,25 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "  I",
-    " L ",
-    "PS "
-  ],
-  "key": {
-    "I": {
-      "tag": "minecraft:planks"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  I",
+        " L ",
+        "PS "
+    ],
+    "key": {
+        "I": {
+            "tag": "minecraft:planks"
+        },
+        "L": {
+            "tag": "minecraft:logs"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        },
+        "S": {
+            "tag": "forge:leather"
+        }
     },
-    "L": {
-      "tag": "minecraft:logs"
-    },
-    "P": {
-      "tag": "minecraft:planks"
-    },
-    "S": {
-      "tag": "forge:leather"
+    "result": {
+        "item": "arsenal_core:wooden_smallsword_scabbard"
     }
-  },
-  "result": {
-    "item": "arsenal_core:wooden_smallsword_scabbard"
-  }
 }

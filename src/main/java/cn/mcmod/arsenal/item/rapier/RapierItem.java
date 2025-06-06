@@ -14,7 +14,6 @@ import com.google.common.collect.Multimap;
 import java.util.List;
 import java.util.function.Consumer;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -43,7 +42,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.ToolActions;
+import net.neoforged.neoforge.common.ToolActions;
 
 public class RapierItem extends TieredItem implements Vanishable, IDrawable, IWeaponTiered {
     private final WeaponTier tier;
@@ -212,8 +211,7 @@ public class RapierItem extends TieredItem implements Vanishable, IDrawable, IWe
     }
 
     public void DoStingAttack(ItemStack stack, LivingEntity attacker, LivingEntity target) {
-        if (stack.getItem() instanceof TieredItem) {
-            TieredItem rapier = (TieredItem)stack.getItem();
+        if (stack.getItem() instanceof TieredItem rapier) {
             DoStingAttack(stack, rapier.getTier().getAttackDamageBonus(), EnchantmentHelper.getDamageBonus(stack, target.getMobType()), attacker, target);
         }
     }
@@ -230,19 +228,16 @@ public class RapierItem extends TieredItem implements Vanishable, IDrawable, IWe
             }
 
             f += f1;
-            // —— 获取 DamageSources 实例 ——
             DamageSources sources = attacker.level().damageSources();
-            // —— 根据攻击者类型选择伤害来源 ——
             DamageSource ds = isPlayer
                     ? sources.playerAttack((Player)attacker)
                     : sources.mobAttack(attacker);
 
-            // 实际造成伤害
             boolean hurt = target.hurt(ds, f);
 
             if (hurt) {
                 target.invulnerableTime = 0;
-                target.level.playSound((Player)null, target, SoundEvents.PLAYER_ATTACK_CRIT, target.getSoundSource(), Math.max(1.0F, f), (target.getRandom().nextFloat() - target.getRandom().nextFloat()) * 0.5F + 1.0F);
+                target.level().playSound(null, target, SoundEvents.PLAYER_ATTACK_CRIT, target.getSoundSource(), Math.max(1.0F, f), (target.getRandom().nextFloat() - target.getRandom().nextFloat()) * 0.5F + 1.0F);
             }
         }
     }

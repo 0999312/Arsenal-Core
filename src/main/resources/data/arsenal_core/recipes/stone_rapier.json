@@ -1,18 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " S",
-    "B "
-  ],
-  "key": {
-    "B": {
-      "item": "minecraft:stone_sword"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " S",
+        "B "
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:stone_sword"
+        },
+        "S": {
+            "item": "arsenal_core:stone_rapier_scabbard"
+        }
     },
-    "S": {
-      "item": "arsenal_core:stone_rapier_scabbard"
+    "result": {
+        "item": "arsenal_core:stone_rapier"
     }
-  },
-  "result": {
-    "item": "arsenal_core:stone_rapier"
-  }
 }

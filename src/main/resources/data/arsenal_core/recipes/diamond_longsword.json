@@ -1,18 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " S",
-    "B "
-  ],
-  "key": {
-    "B": {
-      "item": "minecraft:diamond_sword"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " S",
+        "B "
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:diamond_sword"
+        },
+        "S": {
+            "item": "arsenal_core:diamond_longsword_scabbard"
+        }
     },
-    "S": {
-      "item": "arsenal_core:diamond_longsword_scabbard"
+    "result": {
+        "item": "arsenal_core:diamond_longsword"
     }
-  },
-  "result": {
-    "item": "arsenal_core:diamond_longsword"
-  }
 }

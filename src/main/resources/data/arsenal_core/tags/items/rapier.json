@@ -1,11 +1,11 @@
 {
-  "replace": false,
-  "values": [
-    "arsenal_core:wooden_rapier",
-    "arsenal_core:stone_rapier",
-    "arsenal_core:iron_rapier",
-    "arsenal_core:golden_rapier",
-    "arsenal_core:diamond_rapier",
-    "arsenal_core:netherite_rapier"
-  ]
+    "replace": false,
+    "values": [
+        "arsenal_core:wooden_rapier",
+        "arsenal_core:stone_rapier",
+        "arsenal_core:iron_rapier",
+        "arsenal_core:golden_rapier",
+        "arsenal_core:diamond_rapier",
+        "arsenal_core:netherite_rapier"
+    ]
 }
