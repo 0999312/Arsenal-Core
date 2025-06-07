@@ -1,34 +1,25 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package cn.mcmod.arsenal.compat.curios;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
+import cn.mcmod.arsenal.ArsenalCore;
+import cn.mcmod.arsenal.data.ComponentRegistry;
+import cn.mcmod.arsenal.item.ItemRegistry;
+import cn.mcmod.arsenal.item.WeaponFrogItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.util.LazyOptional;
+import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import top.theillusivec4.curios.api.CuriosCapability;
-import top.theillusivec4.curios.api.type.capability.ICurio;
 
-public class CuriosCapProvider extends ItemHandlerCapProvider {
-    private final ICurio capInstance;
+public class CuriosCapProvider {
 
-    public CuriosCapProvider(ItemStack stack, CompoundTag nbt) {
-        super(stack, nbt);
-        this.capInstance = new CuriosWrapper(stack);
+    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+        if (ArsenalCore.curiosLoaded) {
+            event.registerItem(CuriosCapability.ITEM, (stack, context) -> new CuriosWrapper(stack), ItemRegistry.WEAPON_FROG.get());
+        }
     }
 
-    @Nonnull
-    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
-        return cap == CuriosCapability.ITEM ? LazyOptional.of(this::getCuriosInstance).cast() : super.getCapability(cap, side);
-    }
-
-    public ICurio getCuriosInstance() {
-        return this.capInstance;
+    public static void attachCurio(ItemStack stack, Level level) {
+        if (!stack.has(ComponentRegistry.ITEM_HANDLER_COMPONENT.get())) {
+            WeaponFrogItem.initAttachments(stack, level);
+        }
     }
 }

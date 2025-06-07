@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " S",
+        "B "
+    ],
+    "key": {
+        "B": "minecraft:golden_sword",
+        "S": "arsenal_core:golden_arming_sword_scabbard"
+    },
+    "result": {
+        "id": "arsenal_core:golden_arming_sword"
+    }
+}

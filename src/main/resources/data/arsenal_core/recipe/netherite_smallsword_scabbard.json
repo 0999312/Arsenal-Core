@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  I",
+        " L ",
+        "PS "
+    ],
+    "key": {
+        "I": "#c:ingots/netherite",
+        "L": "#minecraft:logs",
+        "P": "#minecraft:planks",
+        "S": "#c:leathers"
+    },
+    "result": {
+        "id": "arsenal_core:netherite_smallsword_scabbard"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  I",
+        " L ",
+        "P  "
+    ],
+    "key": {
+        "I": "#c:cobblestones",
+        "L": "#c:leathers",
+        "P": "#minecraft:planks"
+    },
+    "result": {
+        "id": "arsenal_core:stone_arming_sword_scabbard"
+    }
+}

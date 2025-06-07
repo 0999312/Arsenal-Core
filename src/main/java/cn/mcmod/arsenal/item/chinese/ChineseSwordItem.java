@@ -1,61 +1,54 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package cn.mcmod.arsenal.item.chinese;
 
 import cn.mcmod.arsenal.ArsenalConfig;
 import cn.mcmod.arsenal.api.IDrawable;
 import cn.mcmod.arsenal.api.WeaponFeature;
-import cn.mcmod.arsenal.api.tier.IWeaponTiered;
-import cn.mcmod.arsenal.api.tier.WeaponTier;
+import cn.mcmod.arsenal.api.tier.IWeaponToolMaterial;
+import cn.mcmod.arsenal.api.tier.WeaponToolMaterial;
 import java.util.List;
 import java.util.function.Consumer;
+
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.ToolAction;
-import net.minecraftforge.common.ToolActions;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 
-public class ChineseSwordItem extends SwordItem implements IDrawable, IWeaponTiered {
-    private final WeaponTier tier;
+public class ChineseSwordItem extends SwordItem implements IDrawable, IWeaponToolMaterial {
+    private final WeaponToolMaterial toolMaterial;
     private final ItemStack sheath;
+    private final int attackDamage;
+    private final float attackSpeed;
 
-    public ChineseSwordItem(WeaponTier tier, int attackDamageIn, float attackSpeedIn, ItemStack sheathItem, Properties builderIn) {
-        super(tier, attackDamageIn, attackSpeedIn, builderIn);
-        this.tier = tier;
+    public ChineseSwordItem(WeaponToolMaterial toolMaterial, int attackDamageIn, float attackSpeedIn, ItemStack sheathItem, Item.Properties props) {
+        super(toolMaterial.getToolMaterial(), attackDamageIn, attackSpeedIn, toolMaterial.getToolMaterial().applySwordProperties(props, attackDamageIn, attackSpeedIn));
+        this.toolMaterial = toolMaterial;
         this.sheath = sheathItem;
+        this.attackDamage = attackDamageIn;
+        this.attackSpeed = attackSpeedIn;
     }
 
-    public ChineseSwordItem(WeaponTier tier, int attackDamageIn, float attackSpeedIn, ItemStack sheathItem) {
-        this(tier, attackDamageIn, attackSpeedIn, sheathItem, (new Properties()).stacksTo(1));
+
+    @Deprecated
+    public ChineseSwordItem(WeaponToolMaterial toolMaterial, int attackDamageIn, float attackSpeedIn, ItemStack sheathItem) {
+        this(toolMaterial, attackDamageIn, attackSpeedIn, sheathItem, new Item.Properties().stacksTo(1));
     }
 
-    public ChineseSwordItem(WeaponTier tier, ItemStack sheathItem, Properties builderIn) {
-        this(tier, 4, -1.8F, sheathItem, builderIn);
-    }
 
-    public ChineseSwordItem(WeaponTier tier, ItemStack sheathItem) {
-        this(tier, 4, -1.8F, sheathItem, (new Properties()).stacksTo(1));
-    }
 
     @Override
-    public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
-        super.appendHoverText(stack, level, tooltip, flag);
+    public void appendHoverText(ItemStack stack, Item.TooltipContext pContext, List<Component> tooltip, TooltipFlag flag) {
+        super.appendHoverText(stack, pContext, tooltip, flag);
 
-        WeaponTier tier = getWeaponTier(stack);
+        WeaponToolMaterial tier = getWeaponToolMaterial(stack);
 
         MutableComponent tierText = Component.translatable("tooltip.arsenal.tiers")
                 .append(Component.translatable("tier.arsenal." + tier.getUnlocalizedName()));
@@ -71,8 +64,8 @@ public class ChineseSwordItem extends SwordItem implements IDrawable, IWeaponTie
 
 
     @Override
-    public boolean isFoil(ItemStack p_77636_1_) {
-        return ArsenalConfig.normal_sword_foil && super.isFoil(p_77636_1_);
+    public boolean isFoil(ItemStack stack) {
+        return ArsenalConfig.normal_sword_foil && super.isFoil(stack);
     }
 
     @Override
@@ -81,13 +74,13 @@ public class ChineseSwordItem extends SwordItem implements IDrawable, IWeaponTie
     }
 
     @Override
-    public WeaponTier getWeaponTier(ItemStack stack) {
-        return this.tier;
+    public WeaponToolMaterial getWeaponToolMaterial (ItemStack var1) {
+        return this.toolMaterial;
     }
 
     @Override
     public WeaponFeature getFeature(ItemStack stack) {
-        return this.getWeaponTier(stack).getFeature();
+        return this.getWeaponToolMaterial(stack).getFeature();
     }
 
     @Override
@@ -99,7 +92,7 @@ public class ChineseSwordItem extends SwordItem implements IDrawable, IWeaponTie
     }
 
     @Override
-    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<Item> onBroken) {
         if (this.getFeature(stack) != null) {
             int feature_damage = this.getFeature(stack).damageItem(stack, amount, entity, onBroken);
             return super.damageItem(stack, amount, entity, onBroken) + feature_damage;
@@ -117,34 +110,35 @@ public class ChineseSwordItem extends SwordItem implements IDrawable, IWeaponTie
             return result || this.getFeature(stack).onLeftClickEntity(stack, player, entity);
         }
     }
-
     @Override
-    public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) {
-        ItemStack itemstack = playerIn.getItemInHand(handIn);
-        if (handIn == InteractionHand.MAIN_HAND) {
-            ItemStack off_hand = playerIn.getItemInHand(InteractionHand.OFF_HAND);
-            if (off_hand.getItem().canPerformAction(itemstack, ToolActions.SHIELD_BLOCK)) {
-                playerIn.startUsingItem(InteractionHand.OFF_HAND);
-                return InteractionResultHolder.consume(itemstack);
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+        ItemStack stackInHand = player.getItemInHand(hand);
+
+        if (hand == InteractionHand.MAIN_HAND) {
+            ItemStack offhand = player.getItemInHand(InteractionHand.OFF_HAND);
+            if (offhand.getItem().canPerformAction(stackInHand, ItemAbilities.SHIELD_BLOCK)) {
+                player.startUsingItem(InteractionHand.OFF_HAND);
+                return InteractionResult.CONSUME.heldItemTransformedTo(stackInHand);
             }
         }
 
-        playerIn.startUsingItem(handIn);
-        return InteractionResultHolder.success(itemstack);
+        player.startUsingItem(hand);
+        return InteractionResult.SUCCESS.heldItemTransformedTo(stackInHand);
+    }
+
+
+    @Override
+    public ItemUseAnimation getUseAnimation(ItemStack p_43105_) {
+        return ItemUseAnimation.BLOCK;
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack p_43105_) {
-        return UseAnim.BLOCK;
-    }
-
-    @Override
-    public int getUseDuration(ItemStack stackIn) {
+    public int getUseDuration (ItemStack stack, LivingEntity entity) {
         return 72000;
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
-        return ToolActions.DEFAULT_SHIELD_ACTIONS.contains(toolAction);
+    public boolean canPerformAction(ItemStack stack, ItemAbility toolAction) {
+        return ItemAbilities.DEFAULT_SHIELD_ACTIONS.contains(toolAction);
     }
 }

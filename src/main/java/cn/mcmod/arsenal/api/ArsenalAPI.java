@@ -1,11 +1,6 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package cn.mcmod.arsenal.api;
 
-import cn.mcmod.arsenal.api.tier.WeaponTier;
+import cn.mcmod.arsenal.api.tier.WeaponToolMaterial;
 import cn.mcmod.arsenal.api.tier.WeaponTierRegistry;
 import com.google.common.collect.Maps;
 import java.util.Map;
@@ -19,8 +14,8 @@ public final class ArsenalAPI {
      * @param valueMapper 值映射函数
      * @return 武器层级到值的映射
      */
-    public static <V> Map<WeaponTier, V> registerWeaponsAllTier(Function<WeaponTier, V> valueMapper) {
-        return registerWeaponsAllTier(tier -> !tier.isSpecial(), valueMapper);
+    public static <V> Map<WeaponToolMaterial, V> registerWeaponsAllToolMaterial(Function<WeaponToolMaterial, V> valueMapper) {
+        return registerWeaponsAllToolMaterial(toolMaterial -> !toolMaterial.isSpecial(), valueMapper);
     }
 
     /**
@@ -29,7 +24,7 @@ public final class ArsenalAPI {
      * @param valueMapper 值映射函数
      * @return 武器层级到值的映射
      */
-    public static <V> Map<WeaponTier, V> registerWeaponsAllTier(Predicate<WeaponTier> keyPredicate, Function<WeaponTier, V> valueMapper) {
+    public static <V> Map<WeaponToolMaterial, V> registerWeaponsAllToolMaterial(Predicate<WeaponToolMaterial> keyPredicate, Function<WeaponToolMaterial, V> valueMapper) {
         return WeaponTierRegistry.getWeaponTiers().stream()
                 .filter(keyPredicate)
                 .collect(Collectors.toMap(

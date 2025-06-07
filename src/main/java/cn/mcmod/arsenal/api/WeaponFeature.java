@@ -1,16 +1,13 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package cn.mcmod.arsenal.api;
 
-import java.util.function.Consumer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+
+import java.util.function.Consumer;
 
 public abstract class WeaponFeature {
     private final String name;
@@ -27,5 +24,5 @@ public abstract class WeaponFeature {
 
     public abstract boolean onLeftClickEntity(ItemStack var1, Player var2, Entity var3);
 
-    public abstract <T extends LivingEntity> int damageItem(ItemStack var1, int var2, T var3, Consumer<T> var4);
+    public abstract <T extends LivingEntity> int damageItem(ItemStack var1, int var2, T var3, Consumer<Item> var4);
 }

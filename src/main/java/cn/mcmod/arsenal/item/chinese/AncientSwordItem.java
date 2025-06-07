@@ -1,24 +1,23 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package cn.mcmod.arsenal.item.chinese;
 
-import cn.mcmod.arsenal.api.tier.WeaponTier;
+import cn.mcmod.arsenal.api.tier.WeaponToolMaterial;
 import net.minecraft.world.item.ItemStack;
 
 public class AncientSwordItem extends ChineseSwordItem {
-    public AncientSwordItem(WeaponTier tier, int attackDamageIn, float attackSpeedIn, ItemStack sheathItem) {
-        super(tier, attackDamageIn, attackSpeedIn, sheathItem);
+    public AncientSwordItem(WeaponToolMaterial toolMaterial, int attackDamageIn, float attackSpeedIn, ItemStack sheathItem) {
+        super(toolMaterial, attackDamageIn, attackSpeedIn, sheathItem);
     }
 
-    public AncientSwordItem(WeaponTier tier, ItemStack sheathItem) {
-        super(tier, 5, -2.0F, sheathItem);
+    public AncientSwordItem(WeaponToolMaterial toolMaterial, ItemStack sheathItem) {
+        super(toolMaterial, 5, -2.0F, sheathItem);
+    }
+
+    public AncientSwordItem(WeaponToolMaterial toolMaterial, ItemStack sheathItem, Properties properties) {
+        super(toolMaterial, 5, -2.0F, sheathItem, properties);
     }
 
     @Override
     public int getMaxDamage(ItemStack stack) {
-        return (int)((float)this.getWeaponTier(stack).getUses() * 0.9F);
+        return (int)((float)this.getWeaponToolMaterial(stack).getDurability() * 0.9F);
     }
 }

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "IDI",
+        "SLS",
+        "ISI"
+    ],
+    "key": {
+        "I": "#c:storage_blocks/diamond",
+        "L": "arsenal_core:netherite_ancient_sword",
+        "D": "minecraft:dragon_egg",
+        "S": "#c:nether_stars"
+    },
+    "result": {
+        "id": "arsenal_core:xuanyuanjian"
+    }
+}

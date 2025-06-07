@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package cn.mcmod.arsenal.item;
 
 import net.minecraft.world.item.Item;
@@ -10,12 +5,12 @@ import net.minecraft.world.item.Item;
 public class SwordSheathItem extends Item {
     private boolean isHidden = false;
 
-    public SwordSheathItem() {
-        super(new Properties().stacksTo(1));
+    public SwordSheathItem(Item.Properties properties) {
+        super(properties.stacksTo(1).fireResistant());
     }
 
-    public SwordSheathItem(boolean isHidden) {
-        super(new Properties().stacksTo(1));
+    public SwordSheathItem(boolean isHidden, Item.Properties properties) {
+        super(properties.stacksTo(1));
         this.isHidden = isHidden;
     }
 
@@ -27,10 +22,4 @@ public class SwordSheathItem extends Item {
         this.isHidden = isHidden;
         return this;
     }
-
-    @Override
-    public boolean isFireResistant() {
-        return true;
-    }
-
 }

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  I",
+        " L ",
+        "PS "
+    ],
+    "key": {
+        "I": "#c:cobblestones",
+        "L": "#minecraft:logs",
+        "P": "#minecraft:planks",
+        "S": "#c:strings"
+    },
+    "result": {
+        "id": "arsenal_core:stone_ancient_sword_sheath"
+    }
+}
