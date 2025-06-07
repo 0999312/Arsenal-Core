@@ -11,7 +11,7 @@ public class SwordSheathItem extends Item {
     private boolean isHidden = false;
 
     public SwordSheathItem() {
-        super(new Properties().stacksTo(1));
+        super(new Properties().stacksTo(1).fireResistant());
     }
 
     public SwordSheathItem(boolean isHidden) {
@@ -26,11 +26,6 @@ public class SwordSheathItem extends Item {
     public SwordSheathItem setHidden(boolean isHidden) {
         this.isHidden = isHidden;
         return this;
-    }
-
-    @Override
-    public boolean isFireResistant() {
-        return true;
     }
 
 }

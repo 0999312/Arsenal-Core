@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#arsenal_core:ancient_sword",
+    "#arsenal_core:arming_sword",
+    "#arsenal_core:chinese_sword",
+    "#arsenal_core:longsword",
+    "#arsenal_core:rapier",
+    "#arsenal_core:smallsword"
+  ]
+}

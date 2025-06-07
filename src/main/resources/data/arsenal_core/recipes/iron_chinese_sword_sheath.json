@@ -1,25 +1,25 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " IL",
-    " L ",
-    "PS "
-  ],
-  "key": {
-    "I": {
-      "tag": "forge:ingots/iron"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " IL",
+        " L ",
+        "PS "
+    ],
+    "key": {
+        "I": {
+            "tag": "c:ingots/iron"
+        },
+        "L": {
+            "tag": "minecraft:logs"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        },
+        "S": {
+            "tag": "c:strings"
+        }
     },
-    "L": {
-      "tag": "minecraft:logs"
-    },
-    "P": {
-      "tag": "minecraft:planks"
-    },
-    "S": {
-      "tag": "forge:string"
+    "result": {
+        "id": "arsenal_core:iron_chinese_sword_sheath"
     }
-  },
-  "result": {
-    "item": "arsenal_core:iron_chinese_sword_sheath"
-  }
 }

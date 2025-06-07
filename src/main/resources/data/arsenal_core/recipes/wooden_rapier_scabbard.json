@@ -1,25 +1,25 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " IL",
-    " L ",
-    "PS "
-  ],
-  "key": {
-    "I": {
-      "tag": "minecraft:planks"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " IL",
+        " L ",
+        "PS "
+    ],
+    "key": {
+        "I": {
+            "tag": "minecraft:planks"
+        },
+        "L": {
+            "tag": "minecraft:logs"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        },
+        "S": {
+            "tag": "c:leathers"
+        }
     },
-    "L": {
-      "tag": "minecraft:logs"
-    },
-    "P": {
-      "tag": "minecraft:planks"
-    },
-    "S": {
-      "tag": "forge:leather"
+    "result": {
+        "id": "arsenal_core:wooden_rapier_scabbard"
     }
-  },
-  "result": {
-    "item": "arsenal_core:wooden_rapier_scabbard"
-  }
 }

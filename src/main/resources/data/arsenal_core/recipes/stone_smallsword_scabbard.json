@@ -1,25 +1,25 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "  I",
-    " L ",
-    "PS "
-  ],
-  "key": {
-    "I": {
-      "tag": "forge:cobblestone"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  I",
+        " L ",
+        "PS "
+    ],
+    "key": {
+        "I": {
+            "tag": "c:cobblestones"
+        },
+        "L": {
+            "tag": "minecraft:logs"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        },
+        "S": {
+            "tag": "c:leathers"
+        }
     },
-    "L": {
-      "tag": "minecraft:logs"
-    },
-    "P": {
-      "tag": "minecraft:planks"
-    },
-    "S": {
-      "tag": "forge:leather"
+    "result": {
+        "id": "arsenal_core:stone_smallsword_scabbard"
     }
-  },
-  "result": {
-    "item": "arsenal_core:stone_smallsword_scabbard"
-  }
 }

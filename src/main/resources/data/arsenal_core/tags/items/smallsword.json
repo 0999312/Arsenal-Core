@@ -1,11 +1,11 @@
 {
-  "replace": false,
-  "values": [
-    "arsenal_core:wooden_smallsword",
-    "arsenal_core:stone_smallsword",
-    "arsenal_core:iron_smallsword",
-    "arsenal_core:golden_smallsword",
-    "arsenal_core:diamond_smallsword",
-    "arsenal_core:netherite_smallsword"
-  ]
+    "replace": false,
+    "values": [
+        "arsenal_core:wooden_smallsword",
+        "arsenal_core:stone_smallsword",
+        "arsenal_core:iron_smallsword",
+        "arsenal_core:golden_smallsword",
+        "arsenal_core:diamond_smallsword",
+        "arsenal_core:netherite_smallsword"
+    ]
 }

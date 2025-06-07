@@ -27,5 +27,5 @@ public abstract class WeaponFeature {
 
     public abstract boolean onLeftClickEntity(ItemStack var1, Player var2, Entity var3);
 
-    public abstract <T extends LivingEntity> int damageItem(ItemStack var1, int var2, T var3, Consumer<T> var4);
+    public abstract <T extends LivingEntity> int damageItem(ItemStack var1, int var2, T var3, Runnable var4);
 }

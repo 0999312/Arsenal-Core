@@ -1,25 +1,25 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "  I",
-    " L ",
-    "PS "
-  ],
-  "key": {
-    "I": {
-      "tag": "forge:gems/diamond"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  I",
+        " L ",
+        "PS "
+    ],
+    "key": {
+        "I": {
+            "tag": "c:gems/diamond"
+        },
+        "L": {
+            "tag": "minecraft:logs"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        },
+        "S": {
+            "tag": "c:strings"
+        }
     },
-    "L": {
-      "tag": "minecraft:logs"
-    },
-    "P": {
-      "tag": "minecraft:planks"
-    },
-    "S": {
-      "tag": "forge:string"
+    "result": {
+        "id": "arsenal_core:diamond_ancient_sword_sheath"
     }
-  },
-  "result": {
-    "item": "arsenal_core:diamond_ancient_sword_sheath"
-  }
 }

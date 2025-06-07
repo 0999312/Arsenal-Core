@@ -11,6 +11,7 @@ import cn.mcmod.arsenal.tier.VanillaWeaponTiers;
 import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -31,8 +32,8 @@ public class XuanyuanjianItem extends ChineseSwordItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack stackIn, Level levelIn, List<Component> tooltipIn, TooltipFlag flagIn) {
-        super.appendHoverText(stackIn, levelIn, tooltipIn, flagIn);
+    public void appendHoverText(ItemStack stackIn, Item.TooltipContext pContext, List<Component> tooltipIn, TooltipFlag flagIn) {
+        super.appendHoverText(stackIn, pContext, tooltipIn, flagIn);
         tooltipIn.add((Component.translatable("tooltip.arsenal.xuanyuanjian.not_max")).withStyle(ChatFormatting.DARK_RED));
     }
 
