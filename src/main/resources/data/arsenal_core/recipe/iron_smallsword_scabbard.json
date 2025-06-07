@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  I",
+        " L ",
+        "PS "
+    ],
+    "key": {
+        "I": {
+            "tag": "c:ingots/iron"
+        },
+        "L": {
+            "tag": "minecraft:logs"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        },
+        "S": {
+            "tag": "c:leathers"
+        }
+    },
+    "result": {
+        "id": "arsenal_core:iron_smallsword_scabbard"
+    }
+}

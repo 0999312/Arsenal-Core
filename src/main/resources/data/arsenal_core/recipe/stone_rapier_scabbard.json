@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " IL",
+        " L ",
+        "PS "
+    ],
+    "key": {
+        "I": {
+            "tag": "c:cobblestones"
+        },
+        "L": {
+            "tag": "minecraft:logs"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        },
+        "S": {
+            "tag": "c:leathers"
+        }
+    },
+    "result": {
+        "id": "arsenal_core:stone_rapier_scabbard"
+    }
+}

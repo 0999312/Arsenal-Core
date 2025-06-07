@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "I I",
+        "ILI",
+        " I "
+    ],
+    "key": {
+        "I": {
+            "tag": "c:leathers"
+        },
+        "L": {
+            "tag": "c:rods/wooden"
+        }
+    },
+    "result": {
+        "id": "arsenal_core:weapon_frog"
+    }
+}

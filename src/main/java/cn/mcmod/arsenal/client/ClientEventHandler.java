@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package cn.mcmod.arsenal.client;
 
 import cn.mcmod.arsenal.ArsenalCore;
@@ -13,20 +8,16 @@ import cn.mcmod.arsenal.item.chinese.ChineseSwordItem;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
-@EventBusSubscriber(
-        bus = Bus.MOD,
-        value = {Dist.CLIENT}
-)
+@EventBusSubscriber(modid = ArsenalCore.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientEventHandler {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
@@ -46,9 +37,9 @@ public class ClientEventHandler {
         CuriosRendererRegistry.register(ItemRegistry.WEAPON_FROG.get(), WeaponFrogRender::new);
     }
 
-    private static void registerBlockingProperties(RegistryObject<Item> item) {
+    private static void registerBlockingProperties(DeferredHolder<Item,? extends Item> item) {
         if (item.get() instanceof AncientSwordItem || item.get() instanceof ChineseSwordItem) {
-            ItemProperties.register(item.get(), new ResourceLocation("blocking"), (stack, level, entity, seed) ->
+            ItemProperties.register(item.get(), ResourceLocation.parse("blocking"), (stack, level, entity, seed) ->
                     entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
         }
     }

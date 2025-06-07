@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  I",
+        " L ",
+        "P  "
+    ],
+    "key": {
+        "I": {
+            "tag": "c:ingots/gold"
+        },
+        "L": {
+            "tag": "c:leathers"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        }
+    },
+    "result": {
+        "id": "arsenal_core:golden_arming_sword_scabbard"
+    }
+}

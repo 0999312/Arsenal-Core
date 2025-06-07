@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " IL",
+        " L ",
+        "P  "
+    ],
+    "key": {
+        "I": {
+            "tag": "c:ingots/iron"
+        },
+        "L": {
+            "tag": "c:leathers"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        }
+    },
+    "result": {
+        "id": "arsenal_core:iron_longsword_scabbard"
+    }
+}
