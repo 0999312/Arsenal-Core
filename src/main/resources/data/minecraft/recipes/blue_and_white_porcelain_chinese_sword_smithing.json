@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": { "item": "ultramarine:blue_and_white_porcelain_upgrade_smithing_template" },
+  "base": {
+    "item": "arsenal_core:golden_chinese_sword"
+  },
+  "addition": {
+    "item": "ultramarine:blue_and_white_porcelain_piece"
+  },
+  "result": {
+    "item": "arsenal_core:blue_and_white_porcelain_chinese_sword"
+  }
+}

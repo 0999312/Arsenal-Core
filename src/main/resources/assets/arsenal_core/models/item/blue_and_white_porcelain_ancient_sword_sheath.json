@@ -1,0 +1,7 @@
+{
+  "parent": "arsenal_core:item/ancient_sword_sheath",
+  "textures": {
+    "0": "arsenal:item/blue_and_white_porcelain_sword",
+    "1": "minecraft:block/stripped_dark_oak_log"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "parent": "arsenal_core:item/chinese_sword",
+  "textures": {
+    "0": "arsenal:item/blue_and_white_porcelain_sword"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "minecraft:blocking": 1.0
+      },
+      "model": "arsenal_core:item/blue_and_white_porcelain_chinese_sword_blocking"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S",
+    "B "
+  ],
+  "key": {
+    "B": {
+      "item": "ultramarine:blue_and_white_porcelain_sword"
+    },
+    "S": {
+      "item": "arsenal_core:blue_and_white_porcelain_ancient_sword_sheath"
+    }
+  },
+  "result": {
+    "item": "arsenal_core:blue_and_white_porcelain_ancient_sword"
+  }
+}

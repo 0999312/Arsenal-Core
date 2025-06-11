@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " IL",
+    " L ",
+    "P  "
+  ],
+  "key": {
+    "I": {
+      "item": "ultramarine:blue_and_white_porcelain_piece"
+    },
+    "L": {
+      "tag": "forge:leather"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "arsenal_core:blue_and_white_porcelain_longsword_scabbard"
+  }
+}

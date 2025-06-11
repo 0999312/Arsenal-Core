@@ -1,0 +1,6 @@
+{
+  "parent": "arsenal_core:item/longsword",
+  "textures": {
+    "0": "arsenal:item/blue_and_white_porcelain_sword"
+  }
+}

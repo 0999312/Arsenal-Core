@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package cn.mcmod.arsenal.item;
 
 import net.minecraft.world.item.Item;
@@ -22,6 +17,7 @@ public class SwordSheathItem extends Item {
     public boolean isHidden() {
         return this.isHidden;
     }
+
 
     public SwordSheathItem setHidden(boolean isHidden) {
         this.isHidden = isHidden;

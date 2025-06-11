@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package cn.mcmod.arsenal.client;
 
 import cn.mcmod.arsenal.ArsenalCore;
@@ -39,7 +34,8 @@ public class ClientEventHandler {
 
     @SubscribeEvent
     public static void registerKeyBindings(RegisterKeyMappingsEvent event) {
-        event.register(KeyDrawSword.KEY);
+        event.register(KeyDrawSword.DRAW_SWORD_KEY);
+        event.register(KeyXuanyuanSkill.XUANYUAN_SKILL_KEY);
     }
 
     private static void registerCuriosRenderer() {

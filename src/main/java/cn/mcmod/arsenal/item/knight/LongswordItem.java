@@ -1,13 +1,6 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package cn.mcmod.arsenal.item.knight;
 
-import cn.mcmod.arsenal.ArsenalCore;
 import cn.mcmod.arsenal.api.tier.WeaponTier;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public class LongswordItem extends ArmingSwordItem {

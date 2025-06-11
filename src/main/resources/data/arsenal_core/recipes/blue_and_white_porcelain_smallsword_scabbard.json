@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  I",
+    " L ",
+    "PS "
+  ],
+  "key": {
+    "I": {
+      "item": "ultramarine:blue_and_white_porcelain_piece"
+    },
+    "L": {
+      "tag": "minecraft:logs"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "S": {
+      "tag": "forge:leather"
+    }
+  },
+  "result": {
+    "item": "arsenal_core:blue_and_white_porcelain_smallsword_scabbard"
+  }
+}

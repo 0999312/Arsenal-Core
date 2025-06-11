@@ -1,0 +1,17 @@
+{
+  "package": "cn.mcmod.arsenal.mixin",
+  "mixins": [
+    "BladeStandEntityMixin"
+  ],
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "arsenal_core.refmap.json",
+  "plugin": "cn.mcmod.arsenal.mixin.SBRMixinPlugin",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "BladeStandEntityRendererMixin"
+  ]
+}

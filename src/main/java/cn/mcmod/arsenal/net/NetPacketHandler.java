@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package cn.mcmod.arsenal.net;
 
 import net.minecraft.resources.ResourceLocation;
@@ -32,5 +27,19 @@ public class NetPacketHandler {
                 .decoder(DrawSwordPacket::new)
                 .consumerMainThread(DrawSwordPacket::handler)
                 .add();
+
+        INSTANCE.messageBuilder(XuanyuanSkillPacket.class, nextID(), NetworkDirection.PLAY_TO_SERVER)
+                .encoder(XuanyuanSkillPacket::toBytes)
+                .decoder(XuanyuanSkillPacket::new)
+                .consumerMainThread(XuanyuanSkillPacket::handler)
+                .add();
+
+        INSTANCE.registerMessage(
+                nextID(),
+                SheathSyncPacket.class,
+                SheathSyncPacket::encode,
+                SheathSyncPacket::decode,
+                SheathSyncPacket::handle
+        );
     }
 }
