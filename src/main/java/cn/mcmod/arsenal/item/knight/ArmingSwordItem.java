@@ -3,35 +3,77 @@ package cn.mcmod.arsenal.item.knight;
 import cn.mcmod.arsenal.ArsenalConfig;
 import cn.mcmod.arsenal.api.IDrawable;
 import cn.mcmod.arsenal.api.WeaponFeature;
-import cn.mcmod.arsenal.api.tier.IWeaponToolMaterial;
-import cn.mcmod.arsenal.api.tier.WeaponToolMaterial;
+import cn.mcmod.arsenal.api.toolmaterial.IWeaponToolMaterial;
+import cn.mcmod.arsenal.api.toolmaterial.WeaponToolMaterial;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
+
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class ArmingSwordItem extends SwordItem implements IDrawable, IWeaponToolMaterial {
+public class ArmingSwordItem extends Item implements IDrawable, IWeaponToolMaterial {
     private final WeaponToolMaterial toolMaterial;
     private final ItemStack sheath;
     private final int attackDamage;
     private final float attackSpeed;
 
     public ArmingSwordItem(WeaponToolMaterial toolMaterial, int attackDamageIn, float attackSpeedIn, ItemStack sheathItem, Properties builderIn) {
-        super(toolMaterial.getToolMaterial(), attackDamageIn, attackSpeedIn, toolMaterial.getToolMaterial().applySwordProperties(builderIn, attackDamageIn, attackSpeedIn));
+        super(createProperties(toolMaterial, attackDamageIn, attackSpeedIn, builderIn));
         this.toolMaterial = toolMaterial;
         this.sheath = sheathItem;
         this.attackDamage = attackDamageIn;
         this.attackSpeed = attackSpeedIn;
+    }
+
+    private static Item.Properties createProperties(WeaponToolMaterial toolMaterial, int attackDamage, float attackSpeed, Item.Properties props) {
+        props.component(DataComponents.WEAPON, new Weapon(
+                3,
+                5f
+        ));
+
+        ItemAttributeModifiers.Builder attributeBuilder = ItemAttributeModifiers.builder();
+        attributeBuilder.add(
+                Attributes.ATTACK_DAMAGE,
+                new AttributeModifier(
+                        BASE_ATTACK_DAMAGE_ID,
+                        attackDamage + toolMaterial.getToolMaterial().attackDamageBonus(),
+                        AttributeModifier.Operation.ADD_VALUE
+                ),
+                EquipmentSlotGroup.MAINHAND
+        );
+        attributeBuilder.add(
+                Attributes.ATTACK_SPEED,
+                new AttributeModifier(
+                        BASE_ATTACK_SPEED_ID,
+                        attackSpeed,
+                        AttributeModifier.Operation.ADD_VALUE
+                ),
+                EquipmentSlotGroup.MAINHAND
+        );
+
+        props.attributes(attributeBuilder.build());
+
+        props.durability((int)((float)toolMaterial.getDurability() * 1.25F));
+
+        return props;
     }
 
     public ArmingSwordItem(WeaponToolMaterial toolMaterial, float attackDamage, float attackSpeed, ItemStack sheathItem, Properties properties) {
@@ -40,18 +82,18 @@ public class ArmingSwordItem extends SwordItem implements IDrawable, IWeaponTool
 
     @Override
     public int getMaxDamage(ItemStack stack) {
-        return (int)((float)super.getMaxDamage(stack) * 1.25F);
+        return (int)((float)this.getWeaponToolMaterial(stack).getDurability() * 1.25F);
     }
 
     @Override
-    public void appendHoverText(ItemStack stackIn, Item.TooltipContext pContext, List<Component> tooltipIn, TooltipFlag flagIn) {
-        super.appendHoverText(stackIn, pContext, tooltipIn, flagIn);
+    public void appendHoverText(ItemStack stackIn, Item.TooltipContext pContext, TooltipDisplay display, Consumer<Component> tooltipIn, TooltipFlag flagIn) {
+        super.appendHoverText(stackIn, pContext, display, tooltipIn, flagIn);
         MutableComponent tierText = Component.translatable("tooltip.arsenal.tiers")
                 .append(Component.translatable("tier.arsenal." + this.getWeaponToolMaterial(stackIn).getUnlocalizedName()));
-        tooltipIn.add(tierText);
+        tooltipIn.accept(tierText);
 
         if (this.getFeature(stackIn) != null) {
-            tooltipIn.add(Component.translatable("tooltip.arsenal.feature." + this.getWeaponToolMaterial(stackIn).getFeature().getName())
+            tooltipIn.accept(Component.translatable("tooltip.arsenal.feature." + this.getWeaponToolMaterial(stackIn).getFeature().getName())
                     .withStyle(ChatFormatting.GOLD));
         }
     }
@@ -87,11 +129,17 @@ public class ArmingSwordItem extends SwordItem implements IDrawable, IWeaponTool
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-        super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
+    public void inventoryTick(ItemStack stack, ServerLevel worldIn, Entity entityIn, EquipmentSlot itemSlot) {
+        super.inventoryTick(stack, worldIn, entityIn, itemSlot);
         if (this.getFeature(stack) != null) {
-            this.getFeature(stack).inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
+            this.getFeature(stack).inventoryTick(stack, worldIn, entityIn, itemSlot);
         }
+    }
+
+
+    @Override
+    public boolean canDestroyBlock(ItemStack stack, BlockState state, Level level, BlockPos pos, LivingEntity entity) {
+        return ! (entity instanceof Player player) || ! player.getAbilities().instabuild;
     }
 
     @Override

@@ -1,0 +1,6 @@
+{
+  "parent": "arsenal_core:item/rapier",
+  "textures": {
+    "0": "arsenal:item/copper_sword"
+  }
+}

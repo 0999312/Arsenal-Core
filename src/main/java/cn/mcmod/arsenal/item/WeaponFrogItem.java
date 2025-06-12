@@ -5,12 +5,15 @@ import cn.mcmod.arsenal.data.ComponentRegistry;
 import cn.mcmod.arsenal.compat.curios.CuriosCapProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import org.jetbrains.annotations.Nullable;
 
 public class WeaponFrogItem extends Item {
     public WeaponFrogItem(Properties properties) {
@@ -62,16 +65,17 @@ public class WeaponFrogItem extends Item {
     }
 
     @Override
-    public void onCraftedBy(ItemStack stack, Level level, Player player) {
-        super.onCraftedBy(stack, level, player);
-        initAttachments(stack, level);
+    public void onCraftedBy(ItemStack stack, Player player) {
+        super.onCraftedBy(stack, player);
+        initAttachments(stack, player.level());
     }
 
+
     @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
-        super.inventoryTick(stack, level, entity, slotId, isSelected);
+    public void inventoryTick (ItemStack stack, ServerLevel serverLevel, Entity entity, @Nullable EquipmentSlot slot) {
+        super.inventoryTick(stack, serverLevel, entity, slot);
         if (!stack.has(ComponentRegistry.ITEM_HANDLER_COMPONENT.get())) {
-            initAttachments(stack, level);
+            initAttachments(stack, serverLevel);
         }
     }
 }

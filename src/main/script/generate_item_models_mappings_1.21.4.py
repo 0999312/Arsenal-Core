@@ -4,7 +4,7 @@ import json
 # 输入目录：模型文件原始路径
 source_dir = r"F:\code\mcmod\project\arsenal-core-reborn\src\main\resources\assets\arsenal_core\models\item"
 # 输出目录：新的 items 模型路径
-output_dir = r"F:\code\mcmod\project\arsenal-core-reborn\src\main\resources\assets\arsenal_core\items"
+output_dir = r"/assets/arsenal_core/item"
 
 # 创建输出目录（如果不存在）
 os.makedirs(output_dir, exist_ok=True)

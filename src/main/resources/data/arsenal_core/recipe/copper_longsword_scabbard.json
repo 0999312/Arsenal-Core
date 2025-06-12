@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " IL",
+        " L ",
+        "P  "
+    ],
+    "key": {
+        "I": "#c:ingots/copper",
+        "L": "#c:leathers",
+        "P": "#minecraft:planks"
+    },
+    "result": {
+        "id": "arsenal_core:copper_longsword_scabbard"
+    }
+}

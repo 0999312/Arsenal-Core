@@ -1,0 +1,6 @@
+{
+  "parent": "arsenal_core:item/chinese_sword_blocking",
+  "textures": {
+    "0": "arsenal:item/copper_sword"
+  }
+}

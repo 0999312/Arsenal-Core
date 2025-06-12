@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " IL",
+        " L ",
+        "PS "
+    ],
+    "key": {
+        "I": "#c:ingots/copper",
+        "L": "#minecraft:logs",
+        "P": "#minecraft:planks",
+        "S": "#c:strings"
+    },
+    "result": {
+        "id": "arsenal_core:copper_chinese_sword_sheath"
+    }
+}

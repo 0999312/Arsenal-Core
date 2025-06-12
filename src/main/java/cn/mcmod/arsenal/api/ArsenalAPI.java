@@ -1,7 +1,7 @@
 package cn.mcmod.arsenal.api;
 
-import cn.mcmod.arsenal.api.tier.WeaponToolMaterial;
-import cn.mcmod.arsenal.api.tier.WeaponTierRegistry;
+import cn.mcmod.arsenal.api.toolmaterial.WeaponToolMaterial;
+import cn.mcmod.arsenal.api.toolmaterial.WeaponToolMaterialRegistry;
 import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.function.Function;
@@ -25,7 +25,7 @@ public final class ArsenalAPI {
      * @return 武器层级到值的映射
      */
     public static <V> Map<WeaponToolMaterial, V> registerWeaponsAllToolMaterial(Predicate<WeaponToolMaterial> keyPredicate, Function<WeaponToolMaterial, V> valueMapper) {
-        return WeaponTierRegistry.getWeaponTiers().stream()
+        return WeaponToolMaterialRegistry.getWeaponTiers().stream()
                 .filter(keyPredicate)
                 .collect(Collectors.toMap(
                         Function.identity(),

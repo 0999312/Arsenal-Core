@@ -1,6 +1,6 @@
 package cn.mcmod.arsenal.item.chinese;
 
-import cn.mcmod.arsenal.api.tier.WeaponToolMaterial;
+import cn.mcmod.arsenal.api.toolmaterial.WeaponToolMaterial;
 import net.minecraft.world.item.ItemStack;
 
 public class AncientSwordItem extends ChineseSwordItem {

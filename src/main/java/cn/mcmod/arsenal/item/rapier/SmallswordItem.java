@@ -1,6 +1,6 @@
 package cn.mcmod.arsenal.item.rapier;
 
-import cn.mcmod.arsenal.api.tier.WeaponToolMaterial;
+import cn.mcmod.arsenal.api.toolmaterial.WeaponToolMaterial;
 import cn.mcmod.arsenal.util.EnchantmentUtil;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;

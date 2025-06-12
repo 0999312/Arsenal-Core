@@ -1,6 +1,6 @@
 package cn.mcmod.arsenal;
 
-import cn.mcmod.arsenal.api.tier.WeaponTierRegistry;
+import cn.mcmod.arsenal.api.toolmaterial.WeaponToolMaterialRegistry;
 import cn.mcmod.arsenal.compat.curios.CuriosCapProvider;
 import cn.mcmod.arsenal.data.ComponentRegistry;
 import cn.mcmod.arsenal.item.ArsenalCreativeModTab;
@@ -35,13 +35,14 @@ public class ArsenalCore {
 
 
     private void registerVanillaTiers() {
-        WeaponTierRegistry.registerAll(
+        WeaponToolMaterialRegistry.registerAll(
                 VanillaWeaponToolMaterials.WOOD.get(),
                 VanillaWeaponToolMaterials.STONE.get(),
                 VanillaWeaponToolMaterials.IRON.get(),
                 VanillaWeaponToolMaterials.GOLD.get(),
                 VanillaWeaponToolMaterials.DIAMOND.get(),
                 VanillaWeaponToolMaterials.NETHERITE.get(),
+                VanillaWeaponToolMaterials.COPPER.get(),
                 VanillaWeaponToolMaterials.MAXIMUM_POWER.get());
     }
 

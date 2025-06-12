@@ -1,4 +1,4 @@
-package cn.mcmod.arsenal.api.tier;
+package cn.mcmod.arsenal.api.toolmaterial;
 
 import cn.mcmod.arsenal.ArsenalCore;
 import net.minecraft.resources.ResourceLocation;

@@ -1,12 +1,14 @@
 {
    "itemGroup.arsenal_core" : "武庫 - 核心",
-   
+
    "item.arsenal_core.weapon_frog" : "佩劍帶",
 
    "item.arsenal_core.wooden_chinese_sword_sheath" : "木質中式劍鞘",
    "item.arsenal_core.wooden_ancient_sword_sheath" : "木質中式古劍鞘",
    "item.arsenal_core.stone_chinese_sword_sheath" : "石質中式劍鞘",
    "item.arsenal_core.stone_ancient_sword_sheath" : "石質中式古劍鞘",
+   "item.arsenal_core.copper_chinese_sword_sheath": "銅質中式劍鞘",
+   "item.arsenal_core.copper_ancient_sword_sheath": "銅質中式古劍鞘",
    "item.arsenal_core.iron_chinese_sword_sheath" : "鐵質中式劍鞘",
    "item.arsenal_core.iron_ancient_sword_sheath" : "鐵質中式古劍鞘",
    "item.arsenal_core.golden_chinese_sword_sheath" : "金質中式劍鞘",
@@ -19,6 +21,8 @@
    "item.arsenal_core.wooden_ancient_sword" : "木質中式古劍",
    "item.arsenal_core.stone_chinese_sword" : "石質中式劍",
    "item.arsenal_core.stone_ancient_sword" : "石質中式古劍",
+   "item.arsenal_core.copper_chinese_sword": "銅質中式劍",
+   "item.arsenal_core.copper_ancient_sword": "銅質中式古劍",
    "item.arsenal_core.iron_chinese_sword" : "鐵質中式劍",
    "item.arsenal_core.iron_ancient_sword" : "鐵質中式古劍",
    "item.arsenal_core.golden_chinese_sword" : "金質中式劍",
@@ -32,6 +36,8 @@
    "item.arsenal_core.wooden_smallsword_scabbard" : "木質小劍鞘",
    "item.arsenal_core.stone_rapier_scabbard" : "石質迅捷劍鞘",
    "item.arsenal_core.stone_smallsword_scabbard" : "石質小劍鞘",
+   "item.arsenal_core.copper_rapier_scabbard": "銅質迅捷劍鞘",
+   "item.arsenal_core.copper_smallsword_scabbard": "銅質小劍鞘",
    "item.arsenal_core.iron_rapier_scabbard" : "鐵質迅捷劍鞘",
    "item.arsenal_core.iron_smallsword_scabbard" : "鐵質小劍鞘",
    "item.arsenal_core.golden_rapier_scabbard" : "金質迅捷劍鞘",
@@ -44,6 +50,8 @@
    "item.arsenal_core.wooden_smallsword" : "木質小劍",
    "item.arsenal_core.stone_rapier" : "石質迅捷劍",
    "item.arsenal_core.stone_smallsword" : "石質小劍",
+   "item.arsenal_core.copper_rapier": "銅質迅捷劍",
+   "item.arsenal_core.copper_smallsword": "銅質小劍",
    "item.arsenal_core.iron_rapier" : "鐵質迅捷劍",
    "item.arsenal_core.iron_smallsword" : "鐵質小劍",
    "item.arsenal_core.golden_rapier" : "金質迅捷劍",
@@ -57,6 +65,8 @@
    "item.arsenal_core.wooden_longsword_scabbard" : "木質长劍鞘",
    "item.arsenal_core.stone_arming_sword_scabbard" : "石質武装劍鞘",
    "item.arsenal_core.stone_longsword_scabbard" : "石質长劍鞘",
+   "item.arsenal_core.copper_arming_sword_scabbard": "銅質武装劍鞘",
+   "item.arsenal_core.copper_longsword_scabbard": "銅質长劍鞘",
    "item.arsenal_core.iron_arming_sword_scabbard" : "鐵質武装劍鞘",
    "item.arsenal_core.iron_longsword_scabbard" : "鐵質长劍鞘",
    "item.arsenal_core.golden_arming_sword_scabbard" : "金質武装劍鞘",
@@ -69,6 +79,8 @@
    "item.arsenal_core.wooden_longsword" : "木質长劍",
    "item.arsenal_core.stone_arming_sword" : "石質武装劍",
    "item.arsenal_core.stone_longsword" : "石質长劍",
+   "item.arsenal_core.copper_arming_sword": "銅質武装劍",
+   "item.arsenal_core.copper_longsword": "銅質长劍",
    "item.arsenal_core.iron_arming_sword" : "鐵質武装劍",
    "item.arsenal_core.iron_longsword" : "鐵質长劍",
    "item.arsenal_core.golden_arming_sword" : "金質武装劍",
@@ -82,6 +94,7 @@
 
    "tier.arsenal.wood" : "木",
    "tier.arsenal.stone" : "石",
+   "tier.arsenal.copper": "铜",
    "tier.arsenal.iron" : "鐵",
    "tier.arsenal.gold" : "金",
    "tier.arsenal.diamond" : "鑽石",
@@ -90,7 +103,7 @@
    "tooltip.arsenal.tiers" : "劍的等级：",
    "tooltip.arsenal.feature.maximum_power" : "其內蘊藏無窮之力，為斬妖除魔的神劍。",
    "tooltip.arsenal.xuanyuanjian.not_max" : "幷沒有發揮一絲力量……",
-   
+
    "key.draw_sword" : "拔劍",
    "key.category.arsenal" : "武庫 - 核心"
 }

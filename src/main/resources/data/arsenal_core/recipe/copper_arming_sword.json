@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " S",
+        "B "
+    ],
+    "key": {
+        "B": "minecraft:copper_sword",
+        "S": "arsenal_core:copper_arming_sword_scabbard"
+    },
+    "result": {
+        "id": "arsenal_core:copper_arming_sword"
+    }
+}

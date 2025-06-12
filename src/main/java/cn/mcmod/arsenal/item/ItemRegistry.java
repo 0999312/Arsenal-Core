@@ -2,7 +2,7 @@ package cn.mcmod.arsenal.item;
 
 import cn.mcmod.arsenal.ArsenalCore;
 import cn.mcmod.arsenal.api.ArsenalAPI;
-import cn.mcmod.arsenal.api.tier.WeaponToolMaterial;
+import cn.mcmod.arsenal.api.toolmaterial.WeaponToolMaterial;
 import cn.mcmod.arsenal.item.chinese.AncientSwordItem;
 import cn.mcmod.arsenal.item.chinese.ChineseSwordItem;
 import cn.mcmod.arsenal.item.chinese.XuanyuanjianItem;
@@ -12,8 +12,6 @@ import cn.mcmod.arsenal.item.rapier.RapierItem;
 import cn.mcmod.arsenal.item.rapier.SmallswordItem;
 import java.util.Map;
 import java.util.function.BiFunction;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;

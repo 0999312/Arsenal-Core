@@ -85,7 +85,7 @@ public record DrawSwordPacket(String message) implements CustomPacketPayload {
             if (handler instanceof ItemStackHandler itemStackHandler) {
                 WeaponFrogItem.saveInventory(weaponFrogStack, itemStackHandler, level);
             }
-            SoundEvent soundEvent = SoundEvents.ITEM_BREAK;
+            SoundEvent soundEvent = SoundEvents.ITEM_BREAK.value();
             Holder<SoundEvent> soundHolder = BuiltInRegistries.SOUND_EVENT.wrapAsHolder(soundEvent);
 
             player.connection.send(new ClientboundSoundPacket(

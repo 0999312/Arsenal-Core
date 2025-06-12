@@ -1,4 +1,4 @@
-package cn.mcmod.arsenal.api.tier;
+package cn.mcmod.arsenal.api.toolmaterial;
 
 import cn.mcmod.arsenal.api.WeaponFeature;
 import net.minecraft.world.item.ItemStack;

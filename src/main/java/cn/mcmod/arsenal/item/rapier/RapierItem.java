@@ -2,8 +2,8 @@ package cn.mcmod.arsenal.item.rapier;
 
 import cn.mcmod.arsenal.api.IDrawable;
 import cn.mcmod.arsenal.api.WeaponFeature;
-import cn.mcmod.arsenal.api.tier.IWeaponToolMaterial;
-import cn.mcmod.arsenal.api.tier.WeaponToolMaterial;
+import cn.mcmod.arsenal.api.toolmaterial.IWeaponToolMaterial;
+import cn.mcmod.arsenal.api.toolmaterial.WeaponToolMaterial;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -11,6 +11,7 @@ import cn.mcmod.arsenal.util.EnchantmentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -23,6 +24,7 @@ import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -97,7 +99,7 @@ public class RapierItem extends Item implements IDrawable, IWeaponToolMaterial {
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
-        player.causeFoodExhaustion(0.2F);
+        player.causeFoodExhaustion(0.2F); // 消耗饥饿值
 
         float[] push;
         if (!player.isInWater()) {
@@ -108,11 +110,12 @@ public class RapierItem extends Item implements IDrawable, IWeaponToolMaterial {
             player.push(push[0], 0.1F, push[1]);
         }
 
-        player.getCooldowns().addCooldown(itemStack, 5);
+        player.getCooldowns().addCooldown(itemStack, 5); // 设置冷却
 
         if (hand == InteractionHand.MAIN_HAND) {
             ItemStack offHand = player.getItemInHand(InteractionHand.OFF_HAND);
-            if (offHand.getItem().canPerformAction(offHand, ItemAbilities.SHIELD_BLOCK)) {
+
+            if (offHand.has(DataComponents.BLOCKS_ATTACKS)) {
                 player.startUsingItem(InteractionHand.OFF_HAND);
                 return InteractionResult.CONSUME.withoutItem();
             }
@@ -120,7 +123,6 @@ public class RapierItem extends Item implements IDrawable, IWeaponToolMaterial {
 
         return InteractionResult.PASS;
     }
-
 
     private static float[] calculatePushVector(Player player, float baseForce) {
         float radiansY = player.getYRot() / 180.0F * (float) Math.PI;
@@ -136,22 +138,23 @@ public class RapierItem extends Item implements IDrawable, IWeaponToolMaterial {
     }
 
     @Override
-    public void appendHoverText(ItemStack stackIn, Item.TooltipContext pContext, List<Component> tooltipIn, TooltipFlag flagIn) {
-        super.appendHoverText(stackIn, pContext, tooltipIn, flagIn);
+    public void appendHoverText(ItemStack stackIn, Item.TooltipContext pContext, TooltipDisplay display, Consumer<Component> tooltipIn, TooltipFlag flagIn) {
+        super.appendHoverText(stackIn, pContext, display, tooltipIn, flagIn);
         Component tierText = Component.translatable("tooltip.arsenal.tiers")
                 .append(Component.translatable("tier.arsenal." + this.getWeaponToolMaterial(stackIn).getUnlocalizedName()));
-        tooltipIn.add(tierText);
+        tooltipIn.accept(tierText);
 
         if (this.getFeature(stackIn) != null) {
-            tooltipIn.add(Component.translatable("tooltip.arsenal.feature." + this.getWeaponToolMaterial(stackIn).getFeature().getName())
+            tooltipIn.accept(Component.translatable("tooltip.arsenal.feature." + this.getWeaponToolMaterial(stackIn).getFeature().getName())
                     .withStyle(ChatFormatting.GOLD));
         }
     }
 
     @Override
-    public boolean canAttackBlock(BlockState blockstate, Level level, BlockPos blockpos, Player player) {
-        return !player.isCreative();
+    public boolean canDestroyBlock(ItemStack stack, BlockState state, Level level, BlockPos pos, LivingEntity entity) {
+        return ! (entity instanceof Player player) || ! player.getAbilities().instabuild;
     }
+
 
     @Override
     public float getDestroySpeed(ItemStack stack, BlockState blockstate) {
@@ -167,10 +170,10 @@ public class RapierItem extends Item implements IDrawable, IWeaponToolMaterial {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-        super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
+    public void inventoryTick(ItemStack stack, ServerLevel worldIn, Entity entityIn, EquipmentSlot itemSlot) {
+        super.inventoryTick(stack, worldIn, entityIn, itemSlot);
         if (this.getFeature(stack) != null) {
-            this.getFeature(stack).inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
+            this.getFeature(stack).inventoryTick(stack, worldIn, entityIn, itemSlot);
         }
     }
 
@@ -185,7 +188,7 @@ public class RapierItem extends Item implements IDrawable, IWeaponToolMaterial {
     }
 
     @Override
-    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public void hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (attacker.level() instanceof ServerLevel serverLevel) {
             stack.hurtAndBreak(1, serverLevel, attacker, item -> {
                 if (attacker instanceof Player player) {
@@ -195,8 +198,8 @@ public class RapierItem extends Item implements IDrawable, IWeaponToolMaterial {
         } else {
             stack.hurtAndBreak(1, attacker, EquipmentSlot.MAINHAND);
         }
-        return true;
     }
+
 
 
     @Override
@@ -237,18 +240,14 @@ public class RapierItem extends Item implements IDrawable, IWeaponToolMaterial {
 
     @Override
     public ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
-        // 获取ToolMaterial提供的基础属性
         ItemAttributeModifiers baseModifiers = super.getDefaultAttributeModifiers(stack);
 
-        // 如果基础属性已经足够，直接返回
         if (!baseModifiers.modifiers().isEmpty()) {
             return baseModifiers;
         }
 
-        // 否则手动构建
         ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder();
 
-        // 正确的forEach用法
         baseModifiers.forEach(EquipmentSlot.MAINHAND, (attribute, modifier) -> {
             builder.add(attribute, modifier, EquipmentSlotGroup.bySlot(EquipmentSlot.MAINHAND));
         });

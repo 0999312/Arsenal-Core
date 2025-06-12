@@ -29,28 +29,19 @@ public class CuriosWrapper implements ICurio {
 
     @Override
     public void readSyncData(SlotContext slotContext, CompoundTag nbt) {
-        try {
             Level level = slotContext.entity().level();
             HolderLookup.Provider registries = level.registryAccess();
             ItemStackHandler handler = new ItemStackHandler(1);
             handler.deserializeNBT(registries, nbt);
             WeaponFrogItem.saveInventory(this.sheath, handler, level);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
     public CompoundTag writeSyncData(SlotContext slotContext) {
-        try {
             Level level = slotContext.entity().level();
             HolderLookup.Provider registries = level.registryAccess();
             ItemStackHandler handler = WeaponFrogItem.getInventory(this.sheath, level);
             return handler.serializeNBT(registries);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new CompoundTag();
-        }
     }
 
     @Override

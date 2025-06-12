@@ -8,7 +8,7 @@
       "predicate": {
         "minecraft:blocking": 1.0
       },
-      "model": "arsenal_core:item/golden_chinese_sword_blocking"
+      "model": "arsenal_core:item/diamond_ancient_sword_blocking"
     }
   ]
 }

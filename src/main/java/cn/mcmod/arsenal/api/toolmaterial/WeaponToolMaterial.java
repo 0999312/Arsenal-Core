@@ -1,4 +1,4 @@
-package cn.mcmod.arsenal.api.tier;
+package cn.mcmod.arsenal.api.toolmaterial;
 
 import cn.mcmod.arsenal.api.WeaponFeature;
 import net.minecraft.resources.ResourceLocation;
@@ -99,19 +99,5 @@ public class WeaponToolMaterial {
     public WeaponToolMaterial setSpecial() {
         this.isSpecial = true;
         return this;
-    }
-
-    /**
-     * 应用剑属性到物品属性
-     */
-    public Item.Properties applySwordProperties(Item.Properties properties, float attackDamage, float attackSpeed) {
-        return this.toolMaterial.applySwordProperties(properties, attackDamage, attackSpeed);
-    }
-
-    /**
-     * 应用工具属性到物品属性
-     */
-    public Item.Properties applyToolProperties(Item.Properties properties, TagKey<Block> mineableBlocks, float attackDamage, float attackSpeed) {
-        return this.toolMaterial.applyToolProperties(properties, mineableBlocks, attackDamage, attackSpeed);
     }
 }

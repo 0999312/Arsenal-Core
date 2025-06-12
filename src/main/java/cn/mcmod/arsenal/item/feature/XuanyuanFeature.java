@@ -3,9 +3,11 @@ package cn.mcmod.arsenal.item.feature;
 import cn.mcmod.arsenal.api.WeaponFeature;
 import cn.mcmod.arsenal.util.EnchantmentUtil;
 import net.minecraft.core.Holder;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -21,7 +23,11 @@ public class XuanyuanFeature extends WeaponFeature {
         super("maximum_power");
     }
 
-    public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+
+
+    @Override
+    public void inventoryTick (ItemStack var1, ServerLevel var2, Entity var3, EquipmentSlot var5) {
+
     }
 
     public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
